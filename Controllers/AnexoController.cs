@@ -16,7 +16,6 @@ namespace Example.WebUI.Controllers
     {
         public IActionResult Anexo()
         {
-
             return View();
 
         }

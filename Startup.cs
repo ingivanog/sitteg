@@ -50,15 +50,6 @@ namespace GuanajuatoAdminUsuarios
                 setupAction.LowercaseUrls = true;
             });
             // Add framework services.
-            services
-                .AddControllersWithViews()
-                // Maintain property names during serialization. See:
-                // https://github.com/aspnet/Announcements/issues/194
-                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
-
-            // Servicios KEndo Telerik
-            services.AddKendo();
-
             //Added for session state
             services.AddDistributedMemoryCache();
 
@@ -66,7 +57,7 @@ namespace GuanajuatoAdminUsuarios
             services.AddSession();
 
             //Hacer accesible la cadena de conexion a la base desde la clase
-           // services.AddTransient<ConexionBD>();
+            // services.AddTransient<ConexionBD>();
 
             //Servicios
             services.AddScoped<ISqlClientConnectionBD, SqlClientConnectionBD>();
@@ -74,12 +65,13 @@ namespace GuanajuatoAdminUsuarios
             services.AddScoped<ISubmarcasVehiculos, SubmarcasVehiculosService>();
             services.AddScoped<IDependencias, DependenciasService>();
             services.AddScoped<IOficiales, OficialesService>();
+            services.AddScoped<IPlacaServices, PlacaServices>();
+            services.AddScoped<ILiberacionVehiculoService, LiberacionVehiculoService>();
 
             services
-                    .AddControllersWithViews()
-                    .AddJsonOptions(options =>
-                    options.JsonSerializerOptions.PropertyNamingPolicy = null);
-
+               .AddControllersWithViews()
+               .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+            services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
             services.AddKendo();
 
 
@@ -117,7 +109,12 @@ namespace GuanajuatoAdminUsuarios
                     name: "area",
                     pattern: "{area:exists}/{controller=Inicio}/{action=Inicio}/{id?}");
             });
-
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //        name: "defaultSitteg",
+            //        pattern: "{controller=Home}/{action=Index}/{id?}");
+            //});
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

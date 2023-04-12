@@ -5,7 +5,6 @@ using GuanajuatoAdminUsuarios.Entity;
 namespace GuanajuatoAdminUsuarios.Interfaces
 {
     public interface IMarcasVehiculos
-
     {
         List<MarcasVehiculo> GetMarcas();
 
