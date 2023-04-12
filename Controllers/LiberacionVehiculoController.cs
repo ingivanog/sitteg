@@ -57,5 +57,13 @@ namespace GuanajuatoAdminUsuarios.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult ajax_UpdateLiberacion(int Id)
+        {
+            var model = _liberacionVehiculoService.GetDepositoByID(Id);
+            return PartialView("_UpdateLiberacion", model);
+
+        }
+
     }
 }
