@@ -7,5 +7,6 @@ namespace GuanajuatoAdminUsuarios.Interfaces
     {
         List<LiberacionVehiculoModel> GetAllTopDepositos();
         List<LiberacionVehiculoModel> GetDepositos(LiberacionVehiculoBusquedaModel model);
+        LiberacionVehiculoModel GetDepositoByID(int Id);
     }
 }

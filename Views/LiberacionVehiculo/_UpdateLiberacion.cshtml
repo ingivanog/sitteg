@@ -1,0 +1,295 @@
+﻿@model LiberacionVehiculoModel
+
+<div class="row">
+    <div class="col-12">
+        <div class="bg-light py-1"></div>
+    </div>
+
+</div>
+<div class="row px-4 mb-4 align-items-end justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>ID:</label>
+            <span>
+                @Html.DisplayFor(m => m.IdDeposito,new {@class="control-label"})
+                @*@(Html.Kendo().TextBoxFor(m=>m.IdPension)
+                .Label(l => l.Content("ID:"))
+                .HtmlAttributes(new { style = "width: 100%", @readonly = "readonly", type = "text" })
+                )*@
+            </span>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>Fecha:</label>
+            <span>
+                @Html.DisplayFor(m => m.FechaIngreso,new {@class="control-label"})
+            </span>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>Pension:</label>
+            <span>
+                @Html.DisplayFor(m => m.IdPension,new {@class="control-label"})
+            </span>
+        </div>
+    </div>
+
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>Marca:</label>
+            <span>
+                @Html.DisplayFor(m => m.marcaVehiculo,new {@class="control-label"})
+            </span>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>Folio:</label>
+            <span>
+                @Html.DisplayFor(m => m.Folio,new {@class="control-label"})
+            </span>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>Carretera:</label>
+            <span>
+                Carretera
+            </span>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>Serie:</label>
+            <span>
+                @Html.DisplayFor(m => m.Serie,new {@class="control-label"})
+            </span>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>Sub Marca:</label>
+            <span>
+                @Html.DisplayFor(m => m.nombreSubmarca,new {@class="control-label"})
+            </span>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>Tramo:</label>
+            <span>
+                Tramo
+            </span>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>Placas:</label>
+            <span>
+                @Html.DisplayFor(m => m.Placa,new {@class="control-label"})
+            </span>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>Color:</label>
+            <span>
+                @Html.DisplayFor(m => m.IdColor,new {@class="control-label"})
+            </span>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="controlForm mb-3">
+            <label>Kilómetro:</label>
+            <span>
+                @Html.DisplayFor(m => m.Km,new {@class="control-label"})
+            </span>
+        </div>
+    </div>
+
+</div>
+@*<form class="row px-4 mb-4 align-items-end justify-content-center">
+    <h1>Hola</h1>
+</form>*@
+@*
+<form class="row px-4 mb-4 align-items-end justify-content-center">
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="controlForm mb-3">
+            <label>Entidad de registro <b>(obligatorio)</b></label>
+            <span>
+                @(Html.Kendo().DropDownList()
+                    .Name("entidadEdit")
+                    .DataTextField("")
+                    .DataValueField("")
+                    .HtmlAttributes(new { style = "width:100%;" })
+                    .Filter(FilterType.Contains)
+                    .DataSource(source => source
+                    .Read(read => read.Action("GetProducts", "Home"))
+                    )
+                    )
+            </span>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="controlForm my-3">
+            @(Html.Kendo().TextBox()
+                .Name("placasEdit")
+                .Label(l => l.Content("Placas"))
+                .Placeholder("Ingresa el número de placa del vehículo")
+                .HtmlAttributes(new { style = "width: 100%" })
+                )
+
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="controlForm my-3">
+            @(Html.Kendo().TextBox()
+                .Name("serieEdit")
+                .Label(l => l.Content("Serie:"))
+                .Placeholder("Ingresa el número de serie valido")
+                .HtmlAttributes(new { style = "width: 100%" })
+                )
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="controlForm my-3">
+            @(Html.Kendo().TextBox()
+                .Name("tarjetaEdit")
+                .Label(l => l.Content("Tarjeta:"))
+                .Placeholder("Ingresa el número de la tarjeta")
+                .HtmlAttributes(new { style = "width: 100%" })
+                )
+
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+        <div class="controlForm my-3">
+            @(Html.Kendo().TextBox()
+                .Name("vigenciaEdit")
+                .Label(l => l.Content("Vigencia de tarjeta:"))
+                .Placeholder("Ingresa la vigencia")
+                .HtmlAttributes(new { style = "width: 100%" })
+                )
+
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+        <div class="controlForm my-3">
+            @(Html.Kendo().TextBox()
+                .Name("marcaEdit")
+                .Label(l => l.Content("Marca <b>(obligatorio)</b>:"))
+                .Placeholder("Ingresa una marca")
+                .HtmlAttributes(new { style = "width: 100%" })
+                )
+
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+        <div class="controlForm my-3">
+            @(Html.Kendo().TextBox()
+                .Name("sub-marcaEdit")
+                .Label(l => l.Content("Sub-Marca <b>(obligatorio)</b>:"))
+                .Placeholder("Ingresa la sub-marca")
+                .HtmlAttributes(new { style = "width: 100%" })
+                )
+
+        </div>
+    </div>
+    <div class="col-12 col-md-5 col-lg-3 col-xl-3">
+        <div class="controlForm my-3">
+            @(Html.Kendo().TextBox()
+                .Name("tipoEdit")
+                .Label(l => l.Content("Tipo de vehículo <b>(obligatorio)</b>:"))
+                .Placeholder("Ingresa el tipo de vehículo")
+                .HtmlAttributes(new { style = "width: 100%" })
+                )
+
+        </div>
+    </div>
+    <div class="col-12 col-md-2 col-lg-2 col-xl-1">
+        <div class="controlForm my-3">
+            @(Html.Kendo().TextBox()
+                .Name("modeloEdit")
+                .Label(l => l.Content("Modelo:"))
+                .Placeholder(" Año")
+                .HtmlAttributes(new { style = "width: 100%" })
+                )
+
+        </div>
+    </div>
+    <div class="col-12 col-md-5 col-lg-3 col-xl-2">
+        <div class="controlForm my-3">
+            <label>Color:</label>
+            <span>
+                @(Html.Kendo().DropDownList()
+                    .Name("colorEdit")
+                    .DataTextField("")
+                    .DataValueField("")
+                    .HtmlAttributes(new { style = "width:100%;" })
+                    .Filter(FilterType.Contains)
+                    .DataSource(source => source
+                    .Read(read => read.Action("GetProducts", "Home"))
+                    )
+                    )
+            </span>
+
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="controlForm my-3">
+            @(Html.Kendo().TextBox()
+                .Name("economicoEdit")
+                .Label(l => l.Content("No. económico:"))
+                .Placeholder("Ingresa el no. económico")
+                .HtmlAttributes(new { style = "width: 100%" })
+                )
+
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+        <div class="controlForm my-3">
+            @(Html.Kendo().TextBox()
+                .Name("manufacturaEdit")
+                .Label(l => l.Content("Manufactura:"))
+                .Placeholder("Ingresa el pais de manufactura")
+                .HtmlAttributes(new { style = "width: 100%" })
+                )
+
+        </div>
+    </div>
+</form>*@
+<div class="row my-4">
+    <div class="col-12 col-md-6 mx-md-auto">
+        <div class="row justify-content-around">
+            <div class="col-auto btnOutline my-2 mx-auto mx-xl-2 p-0">
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <h6 class="m-0 px-3"><b>Cerrar</b></h6>
+                </button>
+            </div>
+            <div class="col-auto btnOutline btnOutlinePrimary my-2 mx-auto mx-xl-2 p-0">
+                <div class="controlButton">
+                    @(Html.Kendo().Button()
+                        .Name("EditVehiculo")
+                        .HtmlAttributes(new { @class = "btnPrimary px-3" })
+                        .Content("<h5 class=\"m-0\"><b>Guardar ajustes</b></h5>"))
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
