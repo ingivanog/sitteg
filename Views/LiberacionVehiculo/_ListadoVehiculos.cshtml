@@ -1,19 +1,19 @@
 ﻿@model List<LiberacionVehiculoModel>
 
 <script>
-    function submitSearch() {
+    //function submitSearch() {
 
-        var Mydata = $("#frmSearch").serialize();
-        console.log(Mydata);
-        $.ajax({
-            url: '@Url.Action("ajax_BuscarVehiculo")',
-            type: 'POST',
-            data: Mydata,
-            success: function (result) {
-                $("#listadoLiberacionVehiculos").html(result);
-            }
-        });
-    }
+    //    var Mydata = $("#frmSearch").serialize();
+    //    //console.log(Mydata);
+    //    $.ajax({
+    //        url: '@Url.Action("ajax_BuscarVehiculo")',
+    //        type: 'POST',
+    //        data: Mydata,
+    //        success: function (result) {
+    //            $("#listadoLiberacionVehiculos").html(result);
+    //        }
+    //    });
+    //}
 
     function ShowDetailPopUp(id) {
         $.ajax({

@@ -6,7 +6,7 @@
         function submitSearch() {
 
             var Mydata = $("#frmSearch").serialize();
-            console.log(Mydata);
+            //console.log(Mydata);
             $.ajax({
                 url: '@Url.Action("ajax_BuscarVehiculo")',
                 type: 'POST',
