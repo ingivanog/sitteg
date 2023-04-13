@@ -2,14 +2,17 @@
 using GuanajuatoAdminUsuarios.Models;
 using Kendo.Mvc.UI;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 
 namespace GuanajuatoAdminUsuarios.Controllers
 {
@@ -65,23 +68,21 @@ namespace GuanajuatoAdminUsuarios.Controllers
         public ActionResult ajax_UpdateLiberacion(int Id)
         {
             var model = _liberacionVehiculoService.GetDepositoByID(Id);
-            model.FechaIngreso.ToString("dd/MM/yyyy");
+            //model.FechaIngreso.ToString("dd/MM/yyyy");
             return PartialView("_UpdateLiberacion", model);
 
         }
 
-
+        //public ActionResult UpdateLiberacion(LiberacionVehiculoModel model, IFormFile ImageAcreditacionPropiedad, IFormFile ImageAcreditacionPersonalidad, IFormFile ImageReciboPago)
         [HttpPost]
-        public ActionResult UpdateLiberacion(LiberacionVehiculoModel model, IFormFile ImageAcreditacionPropiedad, IFormFile ImageAcreditacionPersonalidad, IFormFile ImageReciboPago)
+        public ActionResult UpdateLiberacion(IFormFile ImageAcreditacionPropiedad, IFormFile ImageAcreditacionPersonalidad, IFormFile ImageReciboPago, string data)
         {
-            //if (model.AcreditacionPropiedad.ContentLength > 0)
-            //{
-            //MemoryStream memoryStream = new MemoryStream();
-            //ImageOne.co = memoryStream.ToArray();
-
+            int result = 0;
             try
             {
+                #region funciona
 
+                var model = JsonConvert.DeserializeObject<LiberacionVehiculoModel>(data);
                 if (ImageAcreditacionPropiedad != null)
                 {
                     using (var ms1 = new MemoryStream())
@@ -107,19 +108,27 @@ namespace GuanajuatoAdminUsuarios.Controllers
                     }
                 }
 
-
-                var result = _liberacionVehiculoService.UpdateDeposito(model);
-                //var imgByte = model.AcreditacionPropiedad;
-                //return new FileContentResult(imgByte, "image/jpeg");
-
-
+                ////Prueba de que allmacena bien la imagen  
+                ////var imgByte = model.AcreditacionPropiedad;
+                ////return new FileContentResult(imgByte, "image/jpeg");
+                #endregion
+                result = _liberacionVehiculoService.UpdateDeposito(model);
 
             }
             catch (Exception ex)
             {
 
             }
-            return PartialView("_UpdateLiberacion", model);
+            if (result > 0)
+            {
+                List<LiberacionVehiculoModel> ListProuctModel = _liberacionVehiculoService.GetAllTopDepositos();
+                return Json(ListProuctModel);
+            }
+            else
+            {
+                //Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json(null);
+            }
         }
 
 

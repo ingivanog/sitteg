@@ -121,20 +121,23 @@
     </div>
 
 </div>
-<form class="row px-4 mb-4 align-items-end justify-content-center" asp-controller="LiberacionVehiculo" asp-action="UpdateLiberacion"
-      enctype="multipart/form-data"
-      method="post">
+@* enctype="multipart/form-data"
+      asp-controller="LiberacionVehiculo" asp-action="UpdateLiberacion"
+      method="post"*@
+<form class="row px-4 mb-4 align-items-end justify-content-center"
+      method="post"
+      id="UpdateForm">
     <div class="row align-items-end">
         <div class="col-12 col-lg-6 my-4">
             <h5 class="px-4"><b>Datos:</b></h5>
         </div>
     </div>
-    @Html.HiddenFor(m=>m.IdDeposito)
+    @Html.HiddenFor(m=>m.IdDeposito,new { id="hdnIdDeposito"})
     <div class="col-12 col-md-6 col-lg-4">
         <div class="controlForm mb-3">
-            <label>Acreditación de Propiedad:</label>
+            <label><b>*</b>Acreditación de Propiedad:</label>
             <span>
-                <input type="file" name="ImageAcreditacionPropiedad" id="ImageAcreditacionPropiedad">
+                <input type="file" name="ImageAcreditacionPropiedad" id="ImageAcreditacionPropiedad" required>
                 @*@Html.TextBoxFor(m => m.AcreditacionPropiedad, new { type = "file" ,@class = "btnPrimary px-3",id="ImageOne"})*@
             </span>
         </div>
@@ -142,9 +145,9 @@
 
     <div class="col-12 col-md-6 col-lg-4">
         <div class="controlForm mb-3">
-            <label>Acreditación de Personalidad:</label>
+            <label><b>*</b>Acreditación de Personalidad:</label>
             <span>
-                <input type="file" name="ImageAcreditacionPersonalidad" id="ImageAcreditacionPersonalidad">
+                <input type="file" name="ImageAcreditacionPersonalidad" id="ImageAcreditacionPersonalidad" required>
                 @*@Html.TextBoxFor(m => m.AcreditacionPersonalidad, new { type = "file" ,@class = "btnPrimary px-3"})*@
             </span>
         </div>
@@ -152,9 +155,9 @@
 
     <div class="col-12 col-md-6 col-lg-4">
         <div class="controlForm mb-3">
-            <label>Recibo de Infracción:</label>
+            <label><b>*</b>Recibo de Infracción:</label>
             <span>
-                <input type="file" name="ImageReciboPago" id="ImageReciboPago">
+                <input type="file" name="ImageReciboPago" id="ImageReciboPago" required>
                 @*@Html.TextBoxFor(m => m.ReciboPago, new { type = "file" ,@class = "btnPrimary px-3"})*@
             </span>
         </div>
@@ -166,18 +169,17 @@
             <span>
                 @(Html.Kendo().TextBoxFor(m => m.Observaciones)
 
-                    .HtmlAttributes(new { style = "width: 100%", type = "text" })
+                    .HtmlAttributes(new { style = "width: 100%", type = "text", id = "txtObservaciones" })
                     )
             </span>
         </div>
     </div>
     <div class="col-12 col-md-6 col-lg-6">
         <div class="controlForm mb-3">
-            <label>Nombre de quien Autoriza:</label>
+            <label><b>*</b>Nombre de quien Autoriza:</label>
             <span>
                 @(Html.Kendo().TextBoxFor(m => m.Autoriza)
-
-                    .HtmlAttributes(new { style = "width: 100%", type = "text" })
+                    .HtmlAttributes(new { style = "width: 100%", type = "text", id = "txtAutoriza", required = "required" })
                     )
             </span>
         </div>
@@ -192,11 +194,13 @@
                 </div>
                 <div class="col-auto btnOutline btnOutlinePrimary my-2 mx-auto mx-xl-2 p-0">
                     <div class="controlButton">
-                        <button type="submit" class="btn btn-success"><h5 class="m-0"><b>Guardar</b></h5></button>
+                        @*<button type="submit" class="btn btn-success"><h5 class="m-0"><b>Guardar</b></h5></button>*@
                         @*  @(Html.Kendo().Button()
                         .Name("EditVehiculo")
                         .HtmlAttributes(new { @class = "btnPrimary px-3" })
                         .Content("<h5 class=\"m-0\"><b>Guardar ajustes</b></h5>"))*@
+                        <button class="btnPrimary px-3" onclick="submitVehiculo()"><h5 class="m-0"><b>Guardar</b></h5></button>
+
                     </div>
                 </div>
             </div>
@@ -209,3 +213,55 @@
 </form>
 
 
+<script>
+
+    function submitVehiculo() {
+        if ($("#UpdateForm")[0].checkValidity()) {
+
+            var data = {
+                IdDeposito: $('#hdnIdDeposito').val(),
+                Observaciones: $('#txtObservaciones').val(),
+                Autoriza: $('#txtAutoriza').val()
+            };
+
+            var formData = new FormData();
+
+            formData.append("data", JSON.stringify(data));
+
+            var fileOne = document.getElementById('ImageAcreditacionPropiedad').files[0];
+            formData.append("ImageAcreditacionPropiedad", fileOne);
+
+            var fileTwo = document.getElementById('ImageAcreditacionPersonalidad').files[0];
+            formData.append("ImageAcreditacionPersonalidad", fileTwo);
+
+            var fileThree = document.getElementById('ImageReciboPago').files[0];
+            formData.append("ImageReciboPago", fileThree);
+            $('#modalUpdateLiberacion').modal('hide');
+            $('body').removeClass('model-open');
+            $('.modal-backdrop').remove();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("UpdateLiberacion")',
+                data: formData,
+                contentType: false,
+                processData: false,
+                dataType: "json",
+                async: false,
+                success: function (result) {
+                    console.log(result)
+                    alert("Se ha Actualizado la Información");
+                    //$("#listadoLiberacionVehiculos").html(result);
+
+                },
+                error: function (error) {
+                    alert("!Sucedio um error, intente mas tarde...");
+                }
+            });
+        }
+        else {
+            $("#UpdateForm")[0].reportValidity()
+        }
+    }
+
+
+</script>
