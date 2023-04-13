@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace GuanajuatoAdminUsuarios.Models
 {
@@ -26,6 +27,7 @@ namespace GuanajuatoAdminUsuarios.Models
 
         public string Placa { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime FechaIngreso { get; set; }
 
         public string Folio { get; set; }
@@ -34,11 +36,15 @@ namespace GuanajuatoAdminUsuarios.Models
 
         public int Liberado { get; set; }
 
-        public string AcreditacionPropiedad { get; set; }
+        //[Required(ErrorMessage = "Please select file.")]
+        //[RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
+        //public HttpPostedFileBase PostedFile { get; set; }
+        public byte[] AcreditacionPropiedad { get; set; }
 
-        public string AcreditacionPersonalidad { get; set; }
 
-        public string ReciboPago { get; set; }
+        public byte[] AcreditacionPersonalidad { get; set; }
+
+        public byte[] ReciboPago { get; set; }
 
         public string Observaciones { get; set; }
 

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net.NetworkInformation;
 
 namespace GuanajuatoAdminUsuarios.Services
 {
@@ -224,6 +225,42 @@ namespace GuanajuatoAdminUsuarios.Services
             return deposito;
         }
 
+
+        public int UpdateDeposito(LiberacionVehiculoModel model)
+        {
+            int result = 0;
+            using (SqlConnection connection = new SqlConnection(_sqlClientConnectionBD.GetConnection()))
+            {
+                try
+                {
+                    connection.Open();
+                    const string SqlTransact =
+                        @"Update depositos set AcreditacionPropiedad=@AcreditacionPropiedad,AcreditacionPersonalidad=@AcreditacionPersonalidad,
+                          ReciboPago=@ReciboPago, Observaciones=@Observaciones, Autoriza=@Autoriza,Liberado=@liberado,FechaActualizacion=@FechaActualizacion 
+                          where IdDeposito=@IdDeposito";
+                    SqlCommand command = new SqlCommand(SqlTransact, connection);
+                    command.Parameters.Add(new SqlParameter("@IdDeposito", SqlDbType.Int)).Value = (object)model.IdDeposito ?? DBNull.Value;
+                    command.Parameters.Add(new SqlParameter("@AcreditacionPropiedad", SqlDbType.Image)).Value = (object)model.AcreditacionPropiedad ?? DBNull.Value;
+                    command.Parameters.Add(new SqlParameter("@AcreditacionPersonalidad", SqlDbType.Image)).Value = (object)model.AcreditacionPersonalidad ?? DBNull.Value;
+                    command.Parameters.Add(new SqlParameter("@ReciboPago", SqlDbType.Image)).Value = (object)model.ReciboPago ?? DBNull.Value;
+                    command.Parameters.Add(new SqlParameter("@Observaciones", SqlDbType.Text)).Value = (object)model.Observaciones ?? DBNull.Value;
+                    command.Parameters.Add(new SqlParameter("@Autoriza", SqlDbType.NVarChar)).Value = (object)model.Autoriza ?? DBNull.Value;
+                    command.Parameters.Add(new SqlParameter("@Liberado", SqlDbType.Int)).Value = 1;
+                    command.Parameters.Add(new SqlParameter("@FechaActualizacion", SqlDbType.DateTime)).Value = DateTime.Now;
+                    command.CommandType = CommandType.Text;
+                    result = command.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    return result;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return result;
+        }
 
     }
 }
