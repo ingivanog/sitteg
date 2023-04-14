@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Net.NetworkInformation;
 
 namespace GuanajuatoAdminUsuarios.Services
@@ -27,10 +28,15 @@ namespace GuanajuatoAdminUsuarios.Services
                     const string SqlTransact =
                         @"select top(100) d.IdDeposito,d.IdSolicitud,d.IdDelegacion,d.IdMarca,d.IdSubmarca,d.IdPension,d.IdTramo,
 		                d.IdColor,d.Serie,d.Placa,d.FechaIngreso,d.Folio,d.Km,d.Liberado,d.Autoriza,d.FechaActualizacion,
-		                del.delegacion, d.ActualizadoPor, d.estatus, m.marcaVehiculo,subm.nombreSubmarca
+		                del.delegacion, d.ActualizadoPor, d.estatus, m.marcaVehiculo,subm.nombreSubmarca, sol.solicitanteNombre,
+						sol.solicitanteAp,sol.solicitanteAm,col.color,pen.pension,cTra.tramo
 		                from depositos d inner join delegaciones del on d.idDelegacion= del.idDelegacion
 		                inner join marcasVehiculos m on d.idMarca=m.idMarcaVehiculo
 		                inner join submarcasVehiculos  subm on m.idMarcaVehiculo=subm.idMarcaVehiculo
+                        inner join solicitudes sol on d.idSolicitud = sol.idSolicitud
+						inner join colores col on d.idColor = col.idColor
+	                    inner join pensiones pen on d.idPension	= pen.idPension
+		                inner join catTramos cTra  on d.Idtramo=cTra.idTramo
 		                where d.liberado=0 and d.estatus=1";
                     SqlCommand command = new SqlCommand(SqlTransact, connection);
                     command.CommandType = CommandType.Text;
@@ -64,7 +70,13 @@ namespace GuanajuatoAdminUsuarios.Services
                             deposito.marcaVehiculo = reader["marcaVehiculo"].ToString();
                             deposito.nombreSubmarca = reader["nombreSubmarca"].ToString();
                             deposito.delegacion = reader["delegacion"].ToString();
+                            deposito.solicitanteNombre = reader["solicitanteNombre"].ToString();
+                            deposito.solicitanteAp = reader["solicitanteAp"].ToString();
+                            deposito.solicitanteAm = reader["solicitanteAm"].ToString();
+                            deposito.Color = reader["Color"].ToString();
                             depositosList.Add(deposito);
+                            deposito.pension = reader["pension"].ToString();
+                            deposito.tramo = reader["tramo"].ToString();
                         }
 
                     }
@@ -93,10 +105,15 @@ namespace GuanajuatoAdminUsuarios.Services
                     const string SqlTransact =
                                 @"select top(100) d.IdDeposito,d.IdSolicitud,d.IdDelegacion,d.IdMarca,d.IdSubmarca,d.IdPension,d.IdTramo,
 		                        d.IdColor,d.Serie,d.Placa,d.FechaIngreso,d.Folio,d.Km,d.Liberado,d.Autoriza,d.FechaActualizacion,
-		                        del.delegacion, d.ActualizadoPor, d.estatus, m.marcaVehiculo,subm.nombreSubmarca
+		                        del.delegacion, d.ActualizadoPor, d.estatus, m.marcaVehiculo,subm.nombreSubmarca,sol.solicitanteNombre,
+						        sol.solicitanteAp,sol.solicitanteAm,col.color,pen.pension,cTra.tramo
 		                        from depositos d inner join delegaciones del on d.idDelegacion= del.idDelegacion
 		                        inner join marcasVehiculos m on d.idMarca=m.idMarcaVehiculo
 		                        inner join submarcasVehiculos  subm on m.idMarcaVehiculo=subm.idMarcaVehiculo
+                                inner join solicitudes sol on d.idSolicitud = sol.idSolicitud
+						        inner join colores col on d.idColor = col.idColor
+	                            inner join pensiones pen on d.idPension	= pen.idPension
+                                inner join catTramos cTra  on d.Idtramo=cTra.idTramo
 		                        where d.liberado=0 and d.estatus=1	and
 		                        (d.IdDeposito=@IdDeposito  OR d.IdMarca=@IdMarca 
 		                        OR d.Serie LIKE '%' + @Serie + '%' OR d.FechaIngreso =@FechaIngreso 
@@ -141,7 +158,12 @@ namespace GuanajuatoAdminUsuarios.Services
                             deposito.marcaVehiculo = reader["marcaVehiculo"].ToString();
                             deposito.nombreSubmarca = reader["nombreSubmarca"].ToString();
                             deposito.delegacion = reader["delegacion"].ToString();
-
+                            deposito.solicitanteNombre = reader["solicitanteNombre"].ToString();
+                            deposito.solicitanteAp = reader["solicitanteAp"].ToString();
+                            deposito.solicitanteAm = reader["solicitanteAm"].ToString();
+                            deposito.Color = reader["Color"].ToString();
+                            deposito.pension = reader["pension"].ToString();
+                            deposito.tramo = reader["tramo"].ToString();
                             depositosList.Add(deposito);
                         }
 
@@ -170,10 +192,15 @@ namespace GuanajuatoAdminUsuarios.Services
                     const string SqlTransact =
                         @"select d.IdDeposito,d.IdSolicitud,d.IdDelegacion,d.IdMarca,d.IdSubmarca,d.IdPension,d.IdTramo,
 		                d.IdColor,d.Serie,d.Placa,d.FechaIngreso,d.Folio,d.Km,d.Liberado,d.Autoriza,d.FechaActualizacion,
-		                del.delegacion, d.ActualizadoPor, d.estatus, m.marcaVehiculo,subm.nombreSubmarca
+		                del.delegacion, d.ActualizadoPor, d.estatus, m.marcaVehiculo,subm.nombreSubmarca, sol.solicitanteNombre,
+						sol.solicitanteAp,sol.solicitanteAm,col.color,pen.pension, cTra.tramo
 		                from depositos d inner join delegaciones del on d.idDelegacion= del.idDelegacion
 		                inner join marcasVehiculos m on d.idMarca=m.idMarcaVehiculo
 		                inner join submarcasVehiculos  subm on m.idMarcaVehiculo=subm.idMarcaVehiculo
+						inner join solicitudes sol on d.idSolicitud = sol.idSolicitud
+						inner join colores col on d.idColor = col.idColor
+	                    inner join pensiones pen on d.idPension	= pen.idPension
+                        inner join catTramos cTra  on d.Idtramo=cTra.idTramo
 		                where d.liberado=0 and d.estatus=1 and d.IdDeposito=@IdDeposito";
                     SqlCommand command = new SqlCommand(SqlTransact, connection);
                     command.Parameters.Add(new SqlParameter("@IdDeposito", SqlDbType.Int)).Value = (object)Id ?? DBNull.Value;
@@ -208,6 +235,12 @@ namespace GuanajuatoAdminUsuarios.Services
                             deposito.marcaVehiculo = reader["marcaVehiculo"].ToString();
                             deposito.nombreSubmarca = reader["nombreSubmarca"].ToString();
                             deposito.delegacion = reader["delegacion"].ToString();
+                            deposito.solicitanteNombre = reader["solicitanteNombre"].ToString();
+                            deposito.solicitanteAp = reader["solicitanteAp"].ToString();
+                            deposito.solicitanteAm = reader["solicitanteAm"].ToString();
+                            deposito.Color = reader["Color"].ToString();
+                            deposito.pension = reader["pension"].ToString();
+                            deposito.tramo = reader["tramo"].ToString();
                         }
 
                     }

@@ -67,6 +67,8 @@ namespace GuanajuatoAdminUsuarios
             services.AddScoped<IOficiales, OficialesService>();
             services.AddScoped<IPlacaServices, PlacaServices>();
             services.AddScoped<ILiberacionVehiculoService, LiberacionVehiculoService>();
+            services.AddScoped<ITransitoTransporteService, TransitoTransporteService>();
+            
 
             services
                .AddControllersWithViews()
