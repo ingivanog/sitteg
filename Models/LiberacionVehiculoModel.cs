@@ -58,12 +58,38 @@ namespace GuanajuatoAdminUsuarios.Models
 
         #endregion
 
-        #region Marcas,SubMarca,Delegacion
+        #region Marcas,SubMarca,Delegacion, solicitante,color,pension,tramo, carretera
         public string marcaVehiculo { get; set; }
 
         public string nombreSubmarca { get; set; }
 
         public string delegacion { get; set; }
+
+        public string solicitanteNombre { get; set; }
+
+        public string solicitanteAp { get; set; }
+
+        public string solicitanteAm { get; set; }
+
+        public string fullName
+        {
+            get
+            {
+                return solicitanteNombre.ToString() + " " +
+                solicitanteAp + " " +
+                solicitanteAm;
+            }
+        }
+
+        public string Color { get; set; }
+
+        public string pension { get; set; }
+
+        public string tramo { get; set; }
+
+        public int IdCarretera { get; set; }
+
+        public string carretera { get; set; }
         #endregion
 
 

@@ -6,6 +6,18 @@
     </div>
 
 </div>*@
+<div class="col-12 col-md-6 col-lg-12">
+        <div class="controlForm mb-3">
+            <span>
+            @Html.DisplayFor(m => m.fullName,new {@class="control-label"})
+                @*@(Html.Kendo().TextBoxFor(m=>m.IdPension)
+                .Label(l => l.Content("ID:"))
+                .HtmlAttributes(new { style = "width: 100%", @readonly = "readonly", type = "text" })
+                )*@
+            </span>
+        </div>
+    </div>
+
 <div class="row px-4 mb-4 align-items-end justify-content-center">
     <div class="col-12 col-md-6 col-lg-4">
         <div class="controlForm mb-3">
@@ -33,7 +45,7 @@
         <div class="controlForm mb-3">
             <label>Pension:</label>
             <span>
-                @Html.DisplayFor(m => m.IdPension,new {@class="control-label"})
+                @Html.DisplayFor(m => m.pension,new {@class="control-label"})
             </span>
         </div>
     </div>
@@ -88,7 +100,7 @@
         <div class="controlForm mb-3">
             <label>Tramo:</label>
             <span>
-                Tramo
+                @Html.DisplayFor(m => m.tramo,new {@class="control-label"})
             </span>
         </div>
     </div>
@@ -106,7 +118,7 @@
         <div class="controlForm mb-3">
             <label>Color:</label>
             <span>
-                @Html.DisplayFor(m => m.IdColor,new {@class="control-label"})
+                @Html.DisplayFor(m => m.Color,new {@class="control-label"})
             </span>
         </div>
     </div>
