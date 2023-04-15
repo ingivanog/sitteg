@@ -59,8 +59,8 @@ namespace GuanajuatoAdminUsuarios.Controllers
         [HttpPost]
         public ActionResult ajax_BuscarVehiculo(LiberacionVehiculoBusquedaModel model)
         {
-            var ListProuctModel = _liberacionVehiculoService.GetDepositos(model);
-            return PartialView("_ListadoVehiculos", ListProuctModel);
+            var ListVehiculosModel = _liberacionVehiculoService.GetDepositos(model);
+            return PartialView("_ListadoVehiculos", ListVehiculosModel);
 
         }
 
