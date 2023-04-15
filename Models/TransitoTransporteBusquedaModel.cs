@@ -43,22 +43,22 @@ namespace GuanajuatoAdminUsuarios.Models
         /// <summary>
         /// Aun no se  ddl
         /// </summary>
-        public int Estatus { get; set; }
+        public int IdEstatus { get; set; }
 
         /// <summary>
         /// Aun no se  ddl
         /// </summary>
-        public int TTO_TTE { get; set; }
+        public int IdTTO_TTE { get; set; }
 
         /// <summary>
         /// Aun no se  ddl
         /// </summary>
-        public int DependenciaTTO_TTE { get; set; }
+        public int IdDependenciaTTO_TTE { get; set; }
 
         /// <summary>
         /// Aun no se  ddl
         /// </summary>
-        public int DependenciaEncia { get; set; }
+        public int IdDependenciaEnvia { get; set; }
 
         /// <summary>
         /// tblDepositos
@@ -70,7 +70,7 @@ namespace GuanajuatoAdminUsuarios.Models
         /// </summary>
         public DateTime FechaLiberacion { get; set; }
 
-        public List<TransitoTransporteModel> TransitoTransporte { get; set; }
+        public List<TransitoTransporteModel> ListTransitoTransporte { get; set; }
 
 
     }

@@ -74,9 +74,10 @@ namespace GuanajuatoAdminUsuarios.Services
                             deposito.solicitanteAp = reader["solicitanteAp"].ToString();
                             deposito.solicitanteAm = reader["solicitanteAm"].ToString();
                             deposito.Color = reader["Color"].ToString();
-                            depositosList.Add(deposito);
                             deposito.pension = reader["pension"].ToString();
                             deposito.tramo = reader["tramo"].ToString();
+                            depositosList.Add(deposito);
+                           
                         }
 
                     }
@@ -269,7 +270,8 @@ namespace GuanajuatoAdminUsuarios.Services
                     connection.Open();
                     const string SqlTransact =
                         @"Update depositos set AcreditacionPropiedad=@AcreditacionPropiedad,AcreditacionPersonalidad=@AcreditacionPersonalidad,
-                          ReciboPago=@ReciboPago, Observaciones=@Observaciones, Autoriza=@Autoriza,Liberado=@liberado,FechaActualizacion=@FechaActualizacion 
+                          ReciboPago=@ReciboPago, Observaciones=@Observaciones, Autoriza=@Autoriza,Liberado=@liberado,FechaActualizacion=@FechaActualizacion,
+                          FechaLiberacion=@FechaLiberacion
                           where IdDeposito=@IdDeposito";
                     SqlCommand command = new SqlCommand(SqlTransact, connection);
                     command.Parameters.Add(new SqlParameter("@IdDeposito", SqlDbType.Int)).Value = (object)model.IdDeposito ?? DBNull.Value;
@@ -280,6 +282,7 @@ namespace GuanajuatoAdminUsuarios.Services
                     command.Parameters.Add(new SqlParameter("@Autoriza", SqlDbType.NVarChar)).Value = (object)model.Autoriza ?? DBNull.Value;
                     command.Parameters.Add(new SqlParameter("@Liberado", SqlDbType.Int)).Value = 1;
                     command.Parameters.Add(new SqlParameter("@FechaActualizacion", SqlDbType.DateTime)).Value = DateTime.Now;
+                    command.Parameters.Add(new SqlParameter("@FechaLiberacion", SqlDbType.DateTime)).Value = DateTime.Now;
                     command.CommandType = CommandType.Text;
                     result = command.ExecuteNonQuery();
                 }

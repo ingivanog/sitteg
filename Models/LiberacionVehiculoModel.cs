@@ -29,6 +29,8 @@ namespace GuanajuatoAdminUsuarios.Models
 
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime FechaIngreso { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime FechaLiberacion { get; set; }
 
         public string Folio { get; set; }
 

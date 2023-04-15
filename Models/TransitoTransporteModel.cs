@@ -29,6 +29,8 @@ namespace GuanajuatoAdminUsuarios.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime FechaIngreso { get; set; }
 
+        public DateTime FechaLiberacion { get; set; }
+
         public string Folio { get; set; }
 
         public string Km { get; set; }
@@ -36,6 +38,14 @@ namespace GuanajuatoAdminUsuarios.Models
         public int Liberado { get; set; }
 
         public int DepositoEstatus { get; set; }
+
+        public string Autoriza { get; set; }
+
+        public DateTime FechaActualizacion { get; set; }
+
+        public int ActualizadoPor { get; set; }
+
+        //public int Estatus { get; set; }
         #endregion
 
         #region Solicitudes
@@ -43,7 +53,7 @@ namespace GuanajuatoAdminUsuarios.Models
         public string FolioSolicitud { get; set; }
 
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime FechaIngresoSolicitud { get; set; }
+        public DateTime FechaSolicitud { get; set; }
 
         public string solicitanteNombre { get; set; }
 
@@ -53,8 +63,7 @@ namespace GuanajuatoAdminUsuarios.Models
 
         public int IdVehiculo { get; set; }
 
-        public int idInfraccion { get; set; }
-
+        public int IdInfraccion { get; set; }
         public int SolicitudEstatus { get; set; }
 
         #endregion
@@ -69,7 +78,7 @@ namespace GuanajuatoAdminUsuarios.Models
 
         #region Infracciones
 
-        public string Infraccion { get; set; }
+        public string FolioInfraccion { get; set; }
 
         #endregion
 
@@ -107,7 +116,28 @@ namespace GuanajuatoAdminUsuarios.Models
         public int EstatusVehiculo { get; set; }
         #endregion
 
+        #region Pension
+        public string pension { get; set; }
+        #endregion
+
+        #region Dependencia
+        public int IdDependencia { get; set; }
+
+        public string NombreDependencia { get; set; }
+
+        #endregion
 
 
+        public string marcaVehiculo { get; set; }
+
+        public string nombreSubmarca { get; set; }
+
+        public string delegacion { get; set; }
+
+        public string Color { get; set; }
+
+       
+
+        public string tramo { get; set; }
     }
 }
