@@ -2,6 +2,7 @@
 
 <script>
     function ShowGruaPopUp(id) {
+        //alert(id)
         $.ajax({
             url: '@Url.Action("ajax_DetailGruas")',
             type: 'GET',
@@ -30,22 +31,23 @@
 <div class="row">
     @*<column template="<button data-bs-toggle=modal data-bs-target=\#editVehiculo class='w-100 btn'><h6 class='m-0 colorPrimary'><i class='icon-edit me-2'></i><b>Editar</b></h6></button>" width="100" />*@
     <div class="col-12 mb-4 px-4 rounded gridCustom">
-        @(Html.Kendo().Grid(Model)
+        @(
+            Html.Kendo().Grid(Model)
             .Name("Grid")
             .Columns(columns =>
             {
                 columns.Bound(p => p.IdDeposito).Title("Num.").Width(70);
-                columns.Bound(p => p.FolioSolicitud).Title("Fecha_evento/Folio_Solicitud/Folio_Infracción").Width(150);
-                columns.Bound(p => p.Serie).Title("Vehículo").Width(150);
+                columns.Bound(p => p.fullSolicitudfolioInfraccion).Title("Fecha_evento/Folio_Solicitud/Folio_Infracción").Width(150).HtmlAttributes(new { @class = "label-control" });
+                columns.Bound(p => p.fullVehiculo).Title("Vehículo").Width(150);
                 columns.Bound(c => c.FechaIngreso).Format("{0:dd/MM/yyyy}").Width(90);
                 columns.Bound(c => c.FechaLiberacion).Format("{0:dd/MM/yyyy}").Width(90);
                 columns.Bound(c => c.pension).Title("Pension").Width(100);
-                columns.Bound(c => c.Grua).Title("Grúa").Width(90);
-                columns.Bound(p => p.IdGrua).ClientTemplate(
-                "<button onclick=\"ShowGruaPopUp('#= IdGrua #')\" class='w-100 btn'><h6 class='m-0 colorPrimary'><i class='icon-search me-2'></i></h6></button>"
+                columns.Bound(c => c.Concesionario).Title("Grúa").Width(90);
+                columns.Bound(p => p.IdConcesionario).ClientTemplate(
+                "<button onclick=\"ShowGruaPopUp('#= IdConcesionario #')\" class='w-100 btn'><h6 class='m-0 colorPrimary'><i class='icon-edit me-2'></i></h6></button>"
                 ).Title("Detalle Grúa(s)").Sortable(false).Width(70);
 
-                columns.Bound(c => c.EstatusVehiculo).Title("Estatus Vehículo???").Width(90);
+                columns.Bound(c => c.fullDependencia).Title("Estatus").Width(90);
 
                 columns.Bound(p => p.IdGrua).ClientTemplate(
                 "<button onclick=\"ShowGruaPopUp('#= IdGrua #')\" class='w-100 btn'><h6 class='m-0 colorPrimary'><i class='icon-edit me-2'></i></h6></button>"
@@ -56,9 +58,9 @@
                 ).Title("Eliminar").Sortable(false).Width(70);
 
                 columns.Bound(p => p.IdDeposito).ClientTemplate(
-                "<button onclick=\"ShowGruaPopUp('#= IdGrua #')\" class='w-100 btn'><h6 class='m-0 colorPrimary'><i class='file-pdf me-2'></i></h6></button>"
+                "<button onclick=\"ShowGruaPopUp('#= IdGrua #')\" class='w-100 btn'><h6 class='m-0 colorPrimary'><i class='icon-data me-2'></i></h6></button>"
                 ).Title("Exportar").Sortable(false).Width(70);
-               
+
             }).HtmlAttributes(new { style = "height:350" })
             @*.Pageable(pager => pager.AlwaysVisible(true).PageSizes(new int[] { 5, 10, 20, 100 }))*@
             .Pageable(pager => pager.Input(true))

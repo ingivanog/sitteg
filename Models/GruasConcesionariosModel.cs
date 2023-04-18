@@ -1,8 +1,8 @@
 ﻿namespace GuanajuatoAdminUsuarios.Models
 {
-    public class GruasDepositosModel
+    public class GruasConcesionariosModel
     {
         public int IdGrua { get; set; }
-        public int IdDeposito { get; set; }
+        public int IdConcesionario { get; set; }
     }
 }

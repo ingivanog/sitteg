@@ -138,7 +138,7 @@
 
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="controlForm my-3">
-                    @(Html.Kendo().TextBoxFor(t => t.NumeroEconimico)
+                    @(Html.Kendo().TextBoxFor(t => t.NumeroEconomico)
                         .Label(l => l.Content("No_Económico"))
                         .Placeholder("Ingresa No_Económico")
                         .HtmlAttributes(new { style = "width: 100%" })
@@ -213,7 +213,7 @@
                 <div class="controlForm mb-3">
                     <label>TTO_TTE/Otras:</label>
                     <span>
-                        @(Html.Kendo().DropDownListFor(d => d.IdTTO_TTE)
+                        @(Html.Kendo().DropDownListFor(d => d.IdDependenciaGenera)
                             .DataTextField("Text")
                             .DataValueField("Value")
                             .OptionLabel("Seleccione TTO_TTE...")
@@ -223,7 +223,7 @@
                             {
                                 source.Read(read =>
                                 {
-                                    read.Action("Pension_Read", "TransitoTransporte");
+                                    read.Action("Dependencia_Read", "TransitoTransporte");
                                 });
                             }))
                     </span>
@@ -234,7 +234,7 @@
                 <div class="controlForm mb-3">
                     <label>Dependencia(TTO_TTE):</label>
                     <span>
-                        @(Html.Kendo().DropDownListFor(d => d.IdDependenciaTTO_TTE)
+                        @(Html.Kendo().DropDownListFor(d => d.IdDependenciaTransito)
                             .DataTextField("Text")
                             .DataValueField("Value")
                             .OptionLabel("Seleccione Dependencia(TTO_TTE)...")
@@ -244,7 +244,7 @@
                             {
                                 source.Read(read =>
                                 {
-                                    read.Action("Pension_Read", "TransitoTransporte");
+                                    read.Action("Dependencia_Read", "TransitoTransporte");
                                 });
                             }))
                     </span>
@@ -255,7 +255,7 @@
                 <div class="controlForm mb-3">
                     <label>Dependencia Envía:</label>
                     <span>
-                        @(Html.Kendo().DropDownListFor(d => d.IdDependenciaEnvia)
+                        @(Html.Kendo().DropDownListFor(d => d.IdDependenciaNoTransito)
                             .DataTextField("Text")
                             .DataValueField("Value")
                             .OptionLabel("Seleccione Dependencia Envía...")
@@ -265,7 +265,7 @@
                             {
                                 source.Read(read =>
                                 {
-                                    read.Action("Pension_Read", "TransitoTransporte");
+                                    read.Action("Dependencia_Read", "TransitoTransporte");
                                 });
                             }))
                     </span>
@@ -295,7 +295,7 @@
                 <div class="controlForm my-3">
                     <label>Fecha Hasta:</label>
 
-                    @(Html.Kendo().DatePickerFor(t => t.FechaIngreso)
+                    @(Html.Kendo().DatePickerFor(t => t.FechaIngresoFin)
                         .Value(endDate)
                         .Events(e => e.Change("endChange"))
                         .HtmlAttributes(new { style = "width: 100%", title = "datepicker", id = "end" })
@@ -324,7 +324,7 @@
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="controlButton my-3">
 
-                    <button type="button" onclick="submitExport()" class='export-pdf'><h5 class="m-0"><i class='icon-data m-0'></i>&nbsp;&nbsp; <b>Reporte</b></h5></button>
+                    <button type="button" onclick="submitExport()" class='btnPrimary'><h5 class="m-0"><i class='icon-data m-0'></i>&nbsp;&nbsp; <b>Reporte</b></h5></button>
                     @*<button class="btnPrimary" type="button" onclick="submitExport()">  <h5 class="m-0"><b>Buscar</b></h5></button>*@
 
                     @*@(Html.Kendo().Button()
