@@ -14,10 +14,15 @@ namespace GuanajuatoAdminUsuarios.Controllers
     public class TransitoTransporteController : Controller
     {
         private readonly ITransitoTransporteService _transitoTransporteService;
+        private readonly IDependencias _dependeciaService;
 
-        public TransitoTransporteController(ITransitoTransporteService transitoTransporteService)
+
+        public TransitoTransporteController(ITransitoTransporteService transitoTransporteService,
+            IDependencias dependeciaService
+            )
         {
             _transitoTransporteService = transitoTransporteService;
+            _dependeciaService = dependeciaService;
         }
 
         public IActionResult Index()
@@ -32,7 +37,7 @@ namespace GuanajuatoAdminUsuarios.Controllers
         public ActionResult ajax_BuscarTransito(TransitoTransporteBusquedaModel model)
         {
             var ListTransitoModel = _transitoTransporteService.GetTransitoTransportes(model);
-            return PartialView("_ListadoVehiculos", ListTransitoModel);
+            return PartialView("_ListadoTransitoTransporte", ListTransitoModel);
 
         }
 
@@ -45,6 +50,12 @@ namespace GuanajuatoAdminUsuarios.Controllers
         public JsonResult Pension_Read()
         {
             var result = new SelectList(_transitoTransporteService.GetPensiones(), "IdPension", "Pension");
+            return Json(result);
+        }
+
+        public JsonResult Dependencia_Read()
+        {
+            var result = new SelectList(_dependeciaService.GetDependencias(), "IdDependencia", "NombreDependencia");
             return Json(result);
         }
 

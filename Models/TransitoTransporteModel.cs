@@ -45,6 +45,12 @@ namespace GuanajuatoAdminUsuarios.Models
 
         public int ActualizadoPor { get; set; }
 
+        public int IdDependenciaGenera { get; set; }
+
+        public int IdDependenciaTransito { get; set; }
+
+        public int IdDependenciaNoTransito { get; set; }
+
         //public int Estatus { get; set; }
         #endregion
 
@@ -136,8 +142,42 @@ namespace GuanajuatoAdminUsuarios.Models
 
         public string Color { get; set; }
 
-       
+
 
         public string tramo { get; set; }
+
+        #region Concesionario
+        public int IdConcesionario { get; set; }
+        public string Concesionario { get; set; }
+
+        #endregion
+        //p.FolioSolicitud + " " + p.FechaSolicitud + " " + p.FolioInfraccion
+        public string fullSolicitudfolioInfraccion
+        {
+            get
+            {
+                return @"Fecha: " + FechaSolicitud.ToString("dd/MM/yyyy") + "\r\n\n " +
+                "Solicitud: " + FolioSolicitud + "\r\n\n " +
+                "Infracción: " + FolioInfraccion;
+            }
+        }
+        //p => p.Placa + " " + p.submarca + " " + p.modelo
+        public string fullVehiculo
+        {
+            get
+            {
+                return @"Placas: " + Placa + "\r\n\n " +
+                "Prop: " + propietario + "\r\n\n " +
+                "Descr: " + marcaVehiculo + " " + nombreSubmarca + " " + modelo;
+            }
+        }
+
+        public string fullDependencia
+        {
+            get
+            {
+                return @"Envia: " + NombreDependencia;
+            }
+        }
     }
 }
