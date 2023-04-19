@@ -10,6 +10,7 @@ namespace GuanajuatoAdminUsuarios.Interfaces
         List<TransitoTransporteModel> GetTransitoTransportes(TransitoTransporteBusquedaModel model);
         List<Delegaciones> GetDelegaciones();
         List<Pensiones> GetPensiones();
+        int DeleteTransitoTransporte(int IdDeposito, int IdSolicitud);
 
     }
 }

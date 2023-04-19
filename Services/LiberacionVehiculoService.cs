@@ -259,7 +259,6 @@ namespace GuanajuatoAdminUsuarios.Services
             return deposito;
         }
 
-
         public int UpdateDeposito(LiberacionVehiculoModel model)
         {
             int result = 0;
