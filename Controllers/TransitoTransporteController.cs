@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using static GuanajuatoAdminUsuarios.Utils.CatalogosEnums;
 using System.Linq;
+using System.Net;
 
 namespace GuanajuatoAdminUsuarios.Controllers
 {
@@ -15,14 +16,16 @@ namespace GuanajuatoAdminUsuarios.Controllers
     {
         private readonly ITransitoTransporteService _transitoTransporteService;
         private readonly IDependencias _dependeciaService;
+        private readonly IGruasService _gruasService;
 
 
         public TransitoTransporteController(ITransitoTransporteService transitoTransporteService,
-            IDependencias dependeciaService
+            IDependencias dependeciaService, IGruasService gruasService
             )
         {
             _transitoTransporteService = transitoTransporteService;
             _dependeciaService = dependeciaService;
+            _gruasService = gruasService;
         }
 
         public IActionResult Index()
@@ -73,13 +76,27 @@ namespace GuanajuatoAdminUsuarios.Controllers
         [HttpGet]
         public ActionResult ajax_DetailGruas(int Id)
         {
-            //var model = _liberacionVehiculoService.GetDepositoByID(Id);
-            //model.FechaIngreso.ToString("dd/MM/yyyy");
-            return PartialView("_UpdateLiberacion", null);
+            var model = _gruasService.GetGruasConcesionariosByIdCocesionario(Id);
+            return PartialView("_GruasConcesionarioDetail", model);
 
         }
 
-
+        [HttpPost]
+        public ActionResult ajax_DeleteTransito(string ids)
+        {
+            string[] idsList = ids.Split(",");
+            var result = _transitoTransporteService.DeleteTransitoTransporte(Convert.ToInt32(idsList[0]), Convert.ToInt32(idsList[1]));
+            if (result > 0)
+            {
+                List<TransitoTransporteModel> ListTransitoTransporteModel = _transitoTransporteService.GetAllTransitoTransporte();
+                return PartialView("_ListadoTransitoTransporte", ListTransitoTransporteModel);
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return null;
+            }
+        }
 
 
     }

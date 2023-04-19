@@ -390,6 +390,43 @@ namespace GuanajuatoAdminUsuarios.Services
             return pensiones;
         }
 
+        public int DeleteTransitoTransporte(int IdDeposito, int IdSolicitud)
+        {
+            int result = 0;
+            if ((IdDeposito != null || IdDeposito != 0) && (IdSolicitud != null || IdSolicitud != 0))
+            {
+                using (SqlConnection connection = new SqlConnection(_sqlClientConnectionBD.GetConnection()))
+                {
+                    try
+                    {
+                        connection.Open();
+                        const string SqlTransact =
+                            @"UPDATE depositos
+                        SET estatus= 0
+                        WHERE idDeposito =@IdDeposito
 
+                        UPDATE solicitudes
+                        SET estatus= 0
+                        WHERE idSolicitud =@IdSolicitud";
+
+                        SqlCommand command = new SqlCommand(SqlTransact, connection);
+                        command.Parameters.Add(new SqlParameter("@IdDeposito", SqlDbType.Int)).Value = (object)IdDeposito ?? DBNull.Value;
+                        command.Parameters.Add(new SqlParameter("@IdSolicitud", SqlDbType.Int)).Value = (object)IdSolicitud ?? DBNull.Value;
+                        command.CommandType = CommandType.Text;
+                        result = command.ExecuteNonQuery();
+                    }
+                    catch (SqlException ex)
+                    {
+                        return result;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+            return result;
+
+        }
     }
 }
