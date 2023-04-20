@@ -7,6 +7,7 @@ namespace GuanajuatoAdminUsuarios.Interfaces
     {
         List<GruasConcesionariosModel> GetGruasConcesionariosByIdCocesionario(int Id);
         List<TipoGruaModel> GetTipoGruas();
+        List<GruasModel> GetGruas();
 
     }
 }

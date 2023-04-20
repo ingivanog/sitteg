@@ -106,5 +106,42 @@ namespace GuanajuatoAdminUsuarios.Services
 
         }
 
+        public List<GruasModel> GetGruas()
+        {
+            List<GruasModel> ListGruas = new List<GruasModel>();
+
+            using (SqlConnection connection = new SqlConnection(_sqlClientConnectionBD.GetConnection()))
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("Select * from Gruas where estatus=1", connection);
+                    command.CommandType = CommandType.Text;
+                    using (SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection))
+                    {
+                        while (reader.Read())
+                        {
+                            GruasModel gruaModel = new GruasModel();
+                            gruaModel.IdGrua = Convert.ToInt32(reader["IdGrua"].ToString());
+                            gruaModel.Placas = reader["Placas"].ToString();
+                            ListGruas.Add(gruaModel);
+
+                        }
+
+                    }
+
+                }
+                catch (SqlException ex)
+                {
+                    //Guardar la excepcion en algun log de errores
+                    //ex
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            return ListGruas;
+
+        }
+
     }
 }
