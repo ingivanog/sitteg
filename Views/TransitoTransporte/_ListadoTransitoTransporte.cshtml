@@ -89,8 +89,9 @@
                 ).Title("Exportar").Sortable(false).Width(70);
 
             }).HtmlAttributes(new { style = "height:350" })
+            @*.Pageable(pager => pager.Input(true).Position(GridPagerPosition.Top))*@
             @*.Pageable(pager => pager.AlwaysVisible(true).PageSizes(new int[] { 5, 10, 20, 100 }))*@
-            .Pageable(pager => pager.Input(true))
+            .Pageable(pager => pager.AlwaysVisible(true).PageSizes(new int[] { 5, 10, 20, 100 }).Position(GridPagerPosition.Top))
             .Sortable()
             .Scrollable(scr => scr.Height(350))
             .DataSource(dataSource => dataSource

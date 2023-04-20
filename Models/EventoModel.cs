@@ -2,10 +2,10 @@
 
 namespace GuanajuatoAdminUsuarios.Models
 {
-    public class catTipoGruaModel
+    public class EventoModel
     {
-        public int IdTipoGrua { get; set; }
-        public string TipoGrua { get; set; }
+        public int IdEvento { get; set; }
+        public string Evento { get; set; }
         public DateTime fechaActualizacion { get; set; }
         public int actualizadoPor { get; set; }
         public int estatus { get; set; }

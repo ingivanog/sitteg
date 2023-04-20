@@ -73,8 +73,9 @@ namespace GuanajuatoAdminUsuarios
             services.AddScoped<IMunicipiosService, MunicipiosService>();
             services.AddScoped<IConcesionariosService, ConcesionariosService>();
             services.AddScoped<IConcesionariosService, ConcesionariosService>();
+            services.AddScoped<IReporteAsignacionService, ReporteAsignacionService>();
+            services.AddScoped<IEventoService, EventoService>();
             
-
 
 
 
