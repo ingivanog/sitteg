@@ -1,0 +1,40 @@
+﻿@model List<ReporteAsignacionModel>
+
+<div class="row mb-1 titleCustom">
+    <div class="col-12">
+        <h5 class="px-4"><b>Listado de Reporte de Servicios</b></h5>
+    </div>
+</div>
+<br />
+<br />
+<div class="row">
+
+    <div class="col-12 mb-4 px-4 rounded gridCustom">
+        @(Html.Kendo().Grid(Model)
+            .Name("Grid")
+            .Columns(columns =>
+            {
+                columns.Bound(p => p.vehiculoCarretera).Title("Carretera").Width(90);
+                columns.Bound(p => p.vehiculoTramo).Title("Tramo").Width(90);
+                columns.Bound(p => p.vehiculoKm).Title("KM").Width(90);
+                columns.Bound(c => c.fechaSolicitud).Title("Fecha").Width(90);
+                columns.Bound(c => c.evento).Title("Evento").Width(90);
+                columns.Bound(c => c.solicitanteNombre).Title("Nombre Solicitante").Width(90);
+                columns.Bound(c => c.solicitanteColonia).Title("Dirección").Width(90);
+                columns.Bound(c => c.tipoVehiculo).Title("Tipo Vehículo").Width(90);
+                columns.Bound(c => c.propietarioGrua).Title("Grúa").Width(90);
+                columns.Bound(c => c.oficial).Title("Oficial").Width(90);
+                columns.Bound(c => c.folio).Title("Folio").Width(90);
+                columns.Bound(c => c.vehiculoPension).Title("Pensión").Width(90);
+            }).HtmlAttributes(new { style = "height:350" })
+            .Pageable(pager => pager.AlwaysVisible(true).Position(GridPagerPosition.Top).PageSizes(true))
+            .Sortable()
+            .Scrollable(scr => scr.Height(350))
+            .DataSource(dataSource => dataSource
+            .Ajax()
+            .ServerOperation(false)
+            )
+            )
+    </div>
+
+</div>

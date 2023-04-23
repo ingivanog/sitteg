@@ -68,7 +68,15 @@ namespace GuanajuatoAdminUsuarios
             services.AddScoped<IPlacaServices, PlacaServices>();
             services.AddScoped<ILiberacionVehiculoService, LiberacionVehiculoService>();
             services.AddScoped<ITransitoTransporteService, TransitoTransporteService>();
-            services.AddScoped<IPensionesService, PensionesService>();
+            services.AddScoped<IGruasService, GruasService>();
+            services.AddScoped<IPadronDepositosGruasService, PadronDepositosGruasService>();
+            services.AddScoped<IMunicipiosService, MunicipiosService>();
+            services.AddScoped<IConcesionariosService, ConcesionariosService>();
+            services.AddScoped<IConcesionariosService, ConcesionariosService>();
+            services.AddScoped<IReporteAsignacionService, ReporteAsignacionService>();
+            services.AddScoped<IEventoService, EventoService>();
+            
+
 
 
             services
