@@ -1,6 +1,6 @@
 ﻿namespace GuanajuatoAdminUsuarios.Interfaces
 {
-    public interface Interface
+    public interface ICatDictionary
     {
     }
 }
