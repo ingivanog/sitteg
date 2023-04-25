@@ -49,5 +49,56 @@ namespace GuanajuatoAdminUsuarios.Services
             return ListConcesionarios;
 
         }
+
+
+        public List<Concesionarios2Model> GetConcesionarios2ByIdDelegacion(int idDelegacion)
+        {
+            List<Concesionarios2Model> ListConcesionarios = new List<Concesionarios2Model>();
+            string strQuery = @"SELECT 
+                                idConcesionario
+                                ,nombre
+                                ,idDelegacion
+                                ,idMunicipio
+                                ,alias
+                                ,razonSocial
+                                ,fechaActualizacion
+                                ,actualizadoPor
+                                ,estatus
+                                FROM Concesionarios2
+                                WHERE idDelegacion = @idDelegacion AND estatus = 1";
+            using (SqlConnection connection = new SqlConnection(_sqlClientConnectionBD.GetConnection()))
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(strQuery, connection);
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.Add(new SqlParameter("@idDelegacion", SqlDbType.Int)).Value = idDelegacion;
+                    using (SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection))
+                    {
+                        while (reader.Read())
+                        {
+                            Concesionarios2Model concesionarios = new Concesionarios2Model();
+                            concesionarios.idConcesionario = Convert.ToInt32(reader["idConcesionario"].ToString());
+                            concesionarios.nombre = reader["nombre"].ToString();
+                            concesionarios.idDelegacion = Convert.ToInt32(reader["idDelegacion"].ToString());
+                            concesionarios.idMunicipio = Convert.ToInt32(reader["idMunicipio"].ToString());
+                            concesionarios.alias = reader["alias"].ToString();
+                            concesionarios.razonSocial = reader["razonSocial"].ToString();
+                            ListConcesionarios.Add(concesionarios);
+                        }
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    //Guardar la excepcion en algun log de errores
+                    //ex
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            return ListConcesionarios;
+
+        }
     }
 }
