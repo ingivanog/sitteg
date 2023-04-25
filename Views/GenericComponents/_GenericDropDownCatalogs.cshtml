@@ -1,0 +1,56 @@
+﻿
+@{
+    bool multiple = (bool)ViewBag.multiple;
+    bool isRequired = (bool)ViewBag.isRequired;
+    string htmlName = (string)ViewBag.htmlName;
+    string functionName = (string)ViewBag.functionName;
+    dynamic htmlAttributes;
+    if (isRequired)
+    {
+        htmlAttributes = new { @@class = "form-control", data_val = "true", data_val_required = "Campo requerido", @onchange = functionName };
+    }
+    else
+    {
+        if (multiple)
+        {
+            htmlAttributes = new { @@class = "form-control", @multiple = "multiple" };
+        }
+        else
+        {
+            htmlAttributes = new { @@class = "form-control", @onchange = functionName };
+        }
+    }
+}
+
+@if (!multiple)
+{
+    @(Html.Kendo().DropDownList()
+                  .Name(htmlName)
+                  .BindTo((SelectList)ViewBag.ModelList)
+                  .OptionLabel("-- Seleccione --")
+                  .HtmlAttributes(htmlAttributes)
+                  .Filter(FilterType.Contains))
+   @* (Html.Kendo().DropDownList()
+                             .Name("DropDownListName")
+                            .DataValueField("CategoryID")
+                            .DataTextField("CategoryName")
+                            .BindTo((System.Collections.IEnumerable)ViewBag.categories);*@
+
+    @*@Html.DropDownList(htmlName, (SelectList)ViewBag.ModelList, "-- Seleccione --", (object)htmlAttributes)*@
+}
+@*else
+{
+    @Html.DropDownList(htmlName, (SelectList)ViewBag.ModelList, (object)htmlAttributes)
+}
+
+@if (multiple)
+{
+    @Styles.Render("~/Content/select2")
+    @Scripts.Render("~/bundles/select2")
+    <script>
+        var htmlName = '@htmlName';
+        $(document).ready(function () {
+            $("#" + htmlName).select2();
+        });
+    </script>
+}*@

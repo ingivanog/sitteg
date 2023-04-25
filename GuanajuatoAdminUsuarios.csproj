@@ -45,6 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Attributes\" />
     <Folder Include="Helpers\" />
     <Folder Include="Views\ModificacionVehiculos\" />
     <Folder Include="Views\Depositos\" />
