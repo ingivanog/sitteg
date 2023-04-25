@@ -216,7 +216,6 @@ namespace GuanajuatoAdminUsuarios.Services
                             OR veh.numeroEconomico LIKE '%' + @numeroEconomico + '%' OR del.idDelegacion=@IdDelegacion
                             OR pen.idpension=@IdPension	OR d.IdDependenciaGenera=@IdDependenciaGenera OR d.IdDependenciaTransito=@IdDependenciaTransito 
                             OR  d.IdDependenciaNoTransito=@IdDependenciaNoTransito 
-
                             OR 1 = CASE WHEN  @Estatus=2  THEN CASE WHEN d.liberado=0  THEN 1 END
                                             WHEN  @Estatus=3 THEN CASE WHEN  d.liberado=1 THEN 1 END
                                         END

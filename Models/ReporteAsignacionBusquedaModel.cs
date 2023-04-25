@@ -8,7 +8,7 @@ namespace GuanajuatoAdminUsuarios.Models
         public int IdGrua { get; set; }
         public int IdPension { get; set; }
         public int IdEvento { get; set; }
-        public int Evento { get; set; }
+        public string Evento { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         public List<ReporteAsignacionModel> ListReporteAsignacion { get; set; }

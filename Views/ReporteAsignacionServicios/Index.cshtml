@@ -61,6 +61,15 @@
                 });
         });
 
+        function onSelectEventoValue(e) {
+            var dataItem = this.dataItem(e.item);
+            console.log("event :: select (" + dataItem.Text + " : " + dataItem.Value + ")");
+            //alert(dataItem.Text)
+            //@Model.Evento= dataItem.Text;
+            //$('#hdnEvento').val(dataItem.Text);
+            $('#hdnEvento').val(dataItem.Text);
+        }
+
 
     </script>
 </head>
@@ -100,7 +109,7 @@
                             .DataTextField("Text")
                             .DataValueField("Value")
                             .OptionLabel("Seleccione grúa...")
-                            .HtmlAttributes(new { style = "width:100%;" })
+                            .HtmlAttributes(new { style = "width:100%;", Id = "ddlGrua" })
                             .Filter(FilterType.Contains)
                             .DataSource(source =>
                             {
@@ -129,11 +138,13 @@
                 <div class="controlForm mb-3">
                     <label>Tipo de evento:</label>
                     <span>
+                        @Html.HiddenFor(m=>m.Evento, new{Id="hdnEvento"})
                         @(Html.Kendo().DropDownListFor(d => d.IdEvento)
                             .DataTextField("Text")
                             .DataValueField("Value")
                             .OptionLabel("Seleccione Evento...")
                             .HtmlAttributes(new { style = "width:100%;" })
+                            .Events(x => x.Select("onSelectEventoValue"))
                             .Filter(FilterType.Contains)
                             .DataSource(source =>
                             {
@@ -167,7 +178,7 @@
                 </div>
             </div>
 
-            
+
 
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="controlForm my-3">
