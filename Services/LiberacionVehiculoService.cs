@@ -26,18 +26,20 @@ namespace GuanajuatoAdminUsuarios.Services
                 {
                     connection.Open();
                     const string SqlTransact =
-                        @"select top(100) d.IdDeposito,d.IdSolicitud,d.IdDelegacion,d.IdMarca,d.IdSubmarca,d.IdPension,d.IdTramo,
-		                d.IdColor,d.Serie,d.Placa,d.FechaIngreso,d.Folio,d.Km,d.Liberado,d.Autoriza,d.FechaActualizacion,
-		                del.delegacion, d.ActualizadoPor, d.estatus, m.marcaVehiculo,subm.nombreSubmarca, sol.solicitanteNombre,
-						sol.solicitanteAp,sol.solicitanteAm,col.color,pen.pension,cTra.tramo
-		                from depositos d inner join delegaciones del on d.idDelegacion= del.idDelegacion
-		                inner join marcasVehiculos m on d.idMarca=m.idMarcaVehiculo
-		                inner join submarcasVehiculos  subm on m.idMarcaVehiculo=subm.idMarcaVehiculo
-                        inner join solicitudes sol on d.idSolicitud = sol.idSolicitud
-						inner join colores col on d.idColor = col.idColor
-	                    inner join pensiones pen on d.idPension	= pen.idPension
-		                inner join catTramos cTra  on d.Idtramo=cTra.idTramo
-		                where d.liberado=0 and d.estatus=1";
+                        @"select   top(100) d.IdDeposito,d.IdSolicitud,d.IdDelegacion,d.IdMarca,d.IdSubmarca,d.IdPension,d.IdTramo,
+                            d.IdColor,d.Serie,d.Placa,d.FechaIngreso,d.Folio,d.Km,d.Liberado,d.Autoriza,d.FechaActualizacion,
+                            d.ActualizadoPor, d.estatus, sol.solicitanteNombre,
+                            sol.solicitanteAp,sol.solicitanteAm,pen.pension	,del.delegacion,col.color,
+                            cTra.tramo, m.marcaVehiculo	,subm.nombreSubmarca
+                            from depositos d 
+                            inner join solicitudes sol on d.idSolicitud = sol.idSolicitud
+                            inner join pensiones pen on d.idPension	= pen.idPension
+                            inner join delegaciones del on d.idDelegacion= del.idDelegacion
+                            inner join catColores col on d.idColor = col.idColor
+                            inner join catTramos cTra  on d.Idtramo=cTra.idTramo
+                            inner join marcasVehiculos m on d.idMarca=m.idMarcaVehiculo
+                            inner join submarcasVehiculos  subm on d.idSubmarca=subm.idSubmarca
+                            where d.liberado=0 and d.estatus=1";
                     SqlCommand command = new SqlCommand(SqlTransact, connection);
                     command.CommandType = CommandType.Text;
                     using (SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection))
@@ -104,18 +106,20 @@ namespace GuanajuatoAdminUsuarios.Services
                 {
                     connection.Open();
                     const string SqlTransact =
-                                @"select top(100) d.IdDeposito,d.IdSolicitud,d.IdDelegacion,d.IdMarca,d.IdSubmarca,d.IdPension,d.IdTramo,
-		                        d.IdColor,d.Serie,d.Placa,d.FechaIngreso,d.Folio,d.Km,d.Liberado,d.Autoriza,d.FechaActualizacion,
-		                        del.delegacion, d.ActualizadoPor, d.estatus, m.marcaVehiculo,subm.nombreSubmarca,sol.solicitanteNombre,
-						        sol.solicitanteAp,sol.solicitanteAm,col.color,pen.pension,cTra.tramo
-		                        from depositos d inner join delegaciones del on d.idDelegacion= del.idDelegacion
-		                        inner join marcasVehiculos m on d.idMarca=m.idMarcaVehiculo
-		                        inner join submarcasVehiculos  subm on m.idMarcaVehiculo=subm.idMarcaVehiculo
+                                @"select   top(100) d.IdDeposito,d.IdSolicitud,d.IdDelegacion,d.IdMarca,d.IdSubmarca,d.IdPension,d.IdTramo,
+                                d.IdColor,d.Serie,d.Placa,d.FechaIngreso,d.Folio,d.Km,d.Liberado,d.Autoriza,d.FechaActualizacion,
+                                d.ActualizadoPor, d.estatus, sol.solicitanteNombre,
+                                sol.solicitanteAp,sol.solicitanteAm,pen.pension	,del.delegacion,col.color,
+                                cTra.tramo, m.marcaVehiculo	,subm.nombreSubmarca
+                                from depositos d 
                                 inner join solicitudes sol on d.idSolicitud = sol.idSolicitud
-						        inner join colores col on d.idColor = col.idColor
-	                            inner join pensiones pen on d.idPension	= pen.idPension
+                                inner join pensiones pen on d.idPension	= pen.idPension
+                                inner join delegaciones del on d.idDelegacion= del.idDelegacion
+                                inner join catColores col on d.idColor = col.idColor
                                 inner join catTramos cTra  on d.Idtramo=cTra.idTramo
-		                        where d.liberado=0 and d.estatus=1	and
+                                inner join marcasVehiculos m on d.idMarca=m.idMarcaVehiculo
+                                inner join submarcasVehiculos  subm on d.idSubmarca=subm.idSubmarca
+                                where d.liberado=0 and d.estatus=1	and
 		                        (d.IdDeposito=@IdDeposito  OR d.IdMarca=@IdMarca 
 		                        OR d.Serie LIKE '%' + @Serie + '%' OR d.FechaIngreso =@FechaIngreso 
 		                        OR d.Folio LIKE '%' + @Folio + '%')";
@@ -199,7 +203,7 @@ namespace GuanajuatoAdminUsuarios.Services
 		                inner join marcasVehiculos m on d.idMarca=m.idMarcaVehiculo
 		                inner join submarcasVehiculos  subm on m.idMarcaVehiculo=subm.idMarcaVehiculo
 						inner join solicitudes sol on d.idSolicitud = sol.idSolicitud
-						inner join colores col on d.idColor = col.idColor
+						inner join catColores col on d.idColor = col.idColor
 	                    inner join pensiones pen on d.idPension	= pen.idPension
                         inner join catTramos cTra  on d.Idtramo=cTra.idTramo
 		                where d.liberado=0 and d.estatus=1 and d.IdDeposito=@IdDeposito";

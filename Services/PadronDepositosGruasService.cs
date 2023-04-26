@@ -44,19 +44,17 @@ namespace GuanajuatoAdminUsuarios.Services
                     const string SqlTransact =
                         @"select tg.TipoGrua, tg.IdTipoGrua, g.IdGrua,g.noEconomico,g.Placas,g.Modelo,
                             c.IdConcesionario,c.Concesionario,g.noEconomico,g.placas,g.modelo,g.capacidad,
-                            g.clasificacion,c.Concesionario,dep.IdDeposito,dep.IdPension,dep.IdConcesionario,p.Pension,
+                            c.Concesionario,dep.IdDeposito,dep.IdPension,dep.IdConcesionario,p.Pension,
                             p.Direccion, p.Telefono,  p.IdMunicipio, m.Municipio
-                           from gruas g 
-                            inner join GruasConcesionario gc on g.IdGrua = gc.IdGrua
-                            inner join Concesionarios c on gc.IdConcesionario= c.IdConcesionario
+                            from gruas g 
+                            inner join Concesionarios c on g.IdConcesionario= c.IdConcesionario
                             inner join catTipoGrua tg on g.IdTipoGrua= tg.IdTipoGrua
                             inner join depositos dep on c.IdConcesionario =dep.IdConcesionario
                             inner join pensiones p on dep.idPension= p.idPension
-                            inner join municipios m on p.idMunicipio = m.idMunicipio
+                            inner join catMunicipios m on p.idMunicipio = m.idMunicipio
                             order by  g.IdGrua,c.IdConcesionario";
 
                     SqlCommand command = new SqlCommand(SqlTransact, connection);
-
                     command.CommandType = CommandType.Text;
                     using (SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection))
                     {
@@ -191,16 +189,15 @@ namespace GuanajuatoAdminUsuarios.Services
                     connection.Open();
                     const string SqlTransact =
                         @"select tg.TipoGrua, tg.IdTipoGrua, g.IdGrua,g.noEconomico,g.Placas,g.Modelo,
-                        c.IdConcesionario,c.Concesionario,g.noEconomico,g.placas,g.modelo,g.capacidad,
-                        g.clasificacion,c.Concesionario,dep.IdDeposito,dep.IdPension,dep.IdConcesionario,p.Pension,
-                        p.Direccion, p.Telefono,  p.IdMunicipio, m.Municipio
-                        from gruas g 
-                        inner join GruasConcesionario gc on g.IdGrua = gc.IdGrua
-                        inner join Concesionarios c on gc.IdConcesionario= c.IdConcesionario
-                        inner join catTipoGrua tg on g.IdTipoGrua= tg.IdTipoGrua
-                        inner join depositos dep on c.IdConcesionario =dep.IdConcesionario
-                        inner join pensiones p on dep.idPension= p.idPension
-                        inner join municipios m on p.idMunicipio = m.idMunicipio
+                            c.IdConcesionario,c.Concesionario,g.noEconomico,g.placas,g.modelo,g.capacidad,
+                            c.Concesionario,dep.IdDeposito,dep.IdPension,dep.IdConcesionario,p.Pension,
+                            p.Direccion, p.Telefono,  p.IdMunicipio, m.Municipio
+                            from gruas g 
+                            inner join Concesionarios c on g.IdConcesionario= c.IdConcesionario
+                            inner join catTipoGrua tg on g.IdTipoGrua= tg.IdTipoGrua
+                            inner join depositos dep on c.IdConcesionario =dep.IdConcesionario
+                            inner join pensiones p on dep.idPension= p.idPension
+                            inner join catMunicipios m on p.idMunicipio = m.idMunicipio
                         where  dep.estatus=1 AND p.estatus=1 AND( m.idMunicipio=@IdMunicipio OR c.IdConcesionario=@IdConcesionario 
                         OR p.idPension=@IdPension OR  tg.IdTipoGrua=@IdTipoGrua)
                         order by  g.IdGrua,c.IdConcesionario";

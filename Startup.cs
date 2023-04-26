@@ -72,12 +72,9 @@ namespace GuanajuatoAdminUsuarios
             services.AddScoped<IPadronDepositosGruasService, PadronDepositosGruasService>();
             services.AddScoped<IMunicipiosService, MunicipiosService>();
             services.AddScoped<IConcesionariosService, ConcesionariosService>();
-            services.AddScoped<IConcesionariosService, ConcesionariosService>();
             services.AddScoped<IReporteAsignacionService, ReporteAsignacionService>();
             services.AddScoped<IEventoService, EventoService>();
             services.AddScoped<IGruas2Service, Gruas2Service>();
-
-
 
             services
                .AddControllersWithViews()
