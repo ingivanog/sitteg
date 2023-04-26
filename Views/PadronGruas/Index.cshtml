@@ -1,5 +1,111 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<Gruas2Model>
+
+<head>
+    <script>
+        function submitSearch() {
+
+            var placas = $("#txtPlacas").val();
+            var noEconomico = $("#txtNoEconomico").val();
+            var idTipoGrua = $("#ddlTipoGrua").val();
+            //console.log(Mydata);
+            //$.ajax({
+            //    url: '@Url.Action("ajax_BuscarPadron")',
+            //    type: 'POST',
+            //    data: Mydata,
+            //    success: function (result) {
+            //        $("#listadoGruas").html(result);
+            //    }
+            //});
+
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("ajax_BuscarGruas")',
+                data: {
+                    "placas": placas,
+                    "noEconomico": noEconomico,
+                    "idTipoGrua": idTipoGrua,
+                },
+                success: function (data) {
+                    $("#listadoGruas").html(data);
+                }
+                //,
+                //error: function (xhr, status) {
+                //    var errmsg = msg_err_gral;
+                //    semg_error(errmsg);
+                //}
+            });
+        }
+
+    </script>
+</head>
+<div class="mainContainer bg-light">
+    <section class="mx-md-3 mx-lg-4 mx-xl-5 bg-white boxShadow my-5 rounded">
+        <div class="row align-items-center justify-content-between px-4 px-md-4 pt-3 pb-2">
+            <div class="col-12 col-md-6 col-lg-5 col-xl-auto">
+                <div class="row align-items-center justify-content-center justify-content-md-start">
+                    <div class="col-auto">
+                        <i class="icon-edit-car h1 colorPrimary"></i>
+                    </div>
+                    <div class="col-auto my-3">
+                        <h2 class="m-0 h3"><b>Padrón de grúas</b></h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="bg-light py-1"></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-auto mt-4 mb-2">
+            <h5 class="px-4"><b>Búsqueda de Padrón</b></h5>
+            <h6 class="px-4 text-muted">Realiza una búsqueda del padrón de grúas.</h6>
+        </div>
+        <div class="row row-height">
+            <div class="controlForm col-md-4">
+                @(Html.Kendo().TextBox()
+                    .Name("placas")
+                    .Label(l => l.Content("Placas:"))
+                    .Placeholder("Ingresa las placas validas")
+                    .HtmlAttributes(new { style = "width: 100%", id = "txtPlacas" }))
+            </div>
+            <div class="controlForm col-md-4">
+                @(Html.Kendo().TextBox()
+                    .Name("noEconomico")
+                    .Label(l => l.Content("No. Economico:"))
+                    .Placeholder("Ingresa las placas validas")
+                    .HtmlAttributes(new { style = "width: 100%", id = "txtNoEconomico" }))
+            </div>
+            <div class="controlForm col-md-4">
+                <label>Tipo Grua:</label>
+                    @(Html.Kendo().DropDownList()
+                        .Name("idTipoGruas")
+                        .BindTo((SelectList)ViewBag.CatTipoGruas)
+                        .OptionLabel("-- Seleccione --")
+                        .HtmlAttributes(new { style = "width:100%;", id = "ddlTipoGrua" })
+                        .Filter(FilterType.Contains))
+            </div>
+        </div>
+
+
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="controlButton my-3">
+                    <button class="btnPrimary" type="button" onclick="submitSearch()">  <h5 class="m-0"><b>Buscar</b></h5></button>
+
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-5">
+            </div>
+
+        <div id="listadoGruas">
+            <partial name="_ListadoGruas" model="Model" />
+        </div>
+    </section>
+</div>
+
+
+
+
+
