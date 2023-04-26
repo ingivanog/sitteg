@@ -13,7 +13,7 @@ namespace GuanajuatoAdminUsuarios.Models
         public string TipoGrua { get; set; }
         public string modelo { get; set; }
         public string capacidad { get; set; }
-        public string clasificacion { get; set; }
+        //public string clasificacion { get; set; }
         public DateTime fechaActualizacion { get; set; }
         public int actualizadoPor { get; set; }
         public int estatus { get; set; }

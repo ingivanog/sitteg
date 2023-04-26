@@ -24,11 +24,10 @@ namespace GuanajuatoAdminUsuarios.Services
                     connection.Open();
                     const string SqlTransact =
                         @"select g.IdGrua,  c.IdConcesionario,g.noEconomico,g.placas,g.modelo,g.capacidad,
-                            g.clasificacion,c.Concesionario,catg.IdTipoGrua, catg.TipoGrua
+                            c.Concesionario,catg.IdTipoGrua, catg.TipoGrua
                             from Concesionarios c
-                            left join   GruasConcesionario gc on c.IdConcesionario= gc.IdConcesionario
-                            left join Gruas g on g.IdGrua= gc.IdGrua
-                            left join catTipoGrua catg ON catg.IdTipoGrua=g.IdTipoGrua
+                            inner join Gruas g on g.idConcesionario= c.idConcesionario
+                            inner join catTipoGrua catg ON catg.IdTipoGrua=g.IdTipoGrua
                             where c.IdConcesionario=@IdConcesionario";
 
                     SqlCommand command = new SqlCommand(SqlTransact, connection);
@@ -46,7 +45,7 @@ namespace GuanajuatoAdminUsuarios.Services
                             gruasConcesionario.placas = reader["placas"].ToString();
                             gruasConcesionario.modelo = reader["modelo"].ToString();
                             gruasConcesionario.capacidad = reader["capacidad"].ToString();
-                            gruasConcesionario.clasificacion = reader["clasificacion"].ToString();
+                            //gruasConcesionario.clasificacion = reader["clasificacion"].ToString();
                             gruasConcesionario.Concesionario = reader["Concesionario"].ToString();
                             gruasConcesionario.TipoGrua = reader["TipoGrua"].ToString();
                             GruasConcesionariosList.Add(gruasConcesionario);

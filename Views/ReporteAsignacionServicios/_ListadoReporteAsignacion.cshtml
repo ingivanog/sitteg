@@ -20,15 +20,15 @@
                 columns.Bound(c => c.fechaSolicitud).Title("Fecha").Width(150);
                 columns.Bound(c => c.fechaLiberacion).Title("Fecha Salida").Width(150);
                 columns.Bound(c => c.evento).Title("Evento").Width(90);
-                columns.Bound(c => c.solicitanteNombre).Title("Nombre Solicitante").Width(200);
-                columns.Bound(c => c.solicitanteColonia).Title("Dirección").Width(200);
+                columns.Bound(c => c.fullName).Title("Nombre Solicitante").Width(200);
+                columns.Bound(c => c.fullcolonia).Title("Dirección").Width(200);
                 columns.Bound(c => c.tipoVehiculo).Title("Tipo Vehículo").Width(90);
                 columns.Bound(c => c.noEconomico).Title("Grúa").Width(90);
-                columns.Bound(c => c.Alias).Title("Alias").Width(90);
-                columns.Bound(c => c.oficial).Title("Oficial").Width(90);
+                columns.Bound(c => c.Alias).Title("Alias").Width(150);
+                columns.Bound(c => c.oficial).Title("Oficial").Width(150);
                 columns.Bound(c => c.folio).Title("Folio").Width(90);
-                columns.Bound(c => c.vehiculoPension).Title("Pensión").Width(90);
-                columns.Bound(c => c.Delegacion).Title("Delegacion").Width(90);
+                columns.Bound(c => c.vehiculoPension).Title("Pensión").Width(150);
+                columns.Bound(c => c.Delegacion).Title("Delegacion").Width(150);
             }).HtmlAttributes(new { style = "height:350" })
             .Pageable(pager => pager.AlwaysVisible(true).Position(GridPagerPosition.Top).PageSizes(true))
             .Sortable()

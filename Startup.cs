@@ -76,8 +76,6 @@ namespace GuanajuatoAdminUsuarios
             services.AddScoped<IEventoService, EventoService>();
             services.AddScoped<IGruas2Service, Gruas2Service>();
 
-
-
             services
                .AddControllersWithViews()
                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());

@@ -34,10 +34,30 @@ namespace GuanajuatoAdminUsuarios.Models
         public string solicitanteAp { get; set; }
         public string solicitanteAm { get; set; }
 
+        public string fullName
+        {
+            get
+            {
+                return solicitanteNombre.ToString() + " " +
+                solicitanteAp + " " +
+                solicitanteAm;
+            }
+        }
+
         //Direccion
         public string solicitanteColonia { get; set; }
         public string solicitanteCalle { get; set; }
         public string solicitanteNumero { get; set; }
+
+        public string fullcolonia
+        {
+            get
+            {
+                return solicitanteColonia.ToString() + " " +
+                solicitanteCalle + " " +
+                solicitanteNumero;
+            }
+        }
 
         public string tipoVehiculo { get; set; }
 

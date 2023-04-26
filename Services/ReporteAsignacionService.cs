@@ -41,8 +41,7 @@ namespace GuanajuatoAdminUsuarios.Services
                             inner join pensiones pen on dep.idpension	= pen.idpension
                             inner join solicitudes sol on dep.idsolicitud = sol.idsolicitud
                             inner join Concesionarios con on  con.IdConcesionario = dep.IdConcesionario
-                            inner join GruasConcesionario gc on gc.IdConcesionario = con.IdConcesionario
-                            inner join gruas g  on g.IdGrua = gc.IdGrua";
+                            inner join gruas g  on g.idConcesionario = con.idConcesionario";
 
                     SqlCommand command = new SqlCommand(SqlTransact, connection);
                     command.CommandType = CommandType.Text;
@@ -110,13 +109,13 @@ namespace GuanajuatoAdminUsuarios.Services
                             sol.oficial,sol.folio,sol.propietarioGrua,
                             g.IdGrua,g.noEconomico,
                             con.IdConcesionario, con.concesionario
+
                             from depositos dep 
                             inner join delegaciones del on dep.iddelegacion= del.iddelegacion
                             inner join pensiones pen on dep.idpension	= pen.idpension
                             inner join solicitudes sol on dep.idsolicitud = sol.idsolicitud
                             inner join Concesionarios con on  con.IdConcesionario = dep.IdConcesionario
-                            inner join GruasConcesionario gc on gc.IdConcesionario = con.IdConcesionario
-                            inner join gruas g  on g.IdGrua = gc.IdGrua	   
+                            inner join gruas g  on g.idConcesionario = con.idConcesionario 
                             where g.IdGrua=@IdGrua OR pen.idPension=@IdPension
                             OR  dep.fechaIngreso between @FechaIngreso and  @FechaIngresoFin
                             OR 	UPPER(sol.evento)=@Evento";
