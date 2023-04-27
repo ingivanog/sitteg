@@ -79,6 +79,7 @@ namespace GuanajuatoAdminUsuarios
             services.AddScoped<IEventoService, EventoService>();
             services.AddScoped<IPensionesService, PensionesService>();
             services.AddScoped<IDelegacionesService, DelegacionesService>();
+            services.AddScoped<IResponsableService, ResponsableService>();
             
 
             services.AddScoped<ICatalogosService, CatalogosService>();

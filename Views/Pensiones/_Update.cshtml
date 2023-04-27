@@ -60,7 +60,7 @@
                 <label>Permiso:</label>
                 <span>
                     @(Html.Kendo().TextBoxFor(m => m.Permiso)
-                        .HtmlAttributes(new { style = "width: 100%", type = "text", id = "txtPermiso" })
+                        .HtmlAttributes(new { style = "width: 100%", type = "text", id = "txtUpdatePermiso" })
                         )
                 </span>
             </div>
@@ -71,7 +71,7 @@
                 <label><b>*</b>Correo Electrónico:</label>
                 <span>
                     @(Html.Kendo().TextBoxFor(m => m.Correo)
-                        .HtmlAttributes(new { style = "width: 100%", type = "text", id = "txtCorreo", required = "required" })
+                        .HtmlAttributes(new { style = "width: 100%", type = "text", id = "txtUpdateCorreo", required = "required" })
                         )
                 </span>
             </div>
@@ -82,7 +82,7 @@
                 <label><b>*</b>Dirección:</label>
                 <span>
                     @(Html.Kendo().TextBoxFor(m => m.Direccion)
-                        .HtmlAttributes(new { style = "width: 100%", type = "text", id = "txtDireccion", required = "required" })
+                        .HtmlAttributes(new { style = "width: 100%", type = "text", id = "txtUpdateDireccion", required = "required" })
                         )
                 </span>
             </div>
@@ -98,12 +98,12 @@
                         .DataTextField("Text")
                         .DataValueField("Value")
                         .OptionLabel("Seleccione Responsable...")
-                        .HtmlAttributes(new { style = "width:100%;" })
+                        .HtmlAttributes(new { style = "width:100%;", id = "ddlUpdateResponsables" })
                         .DataSource(source =>
                         {
                             source.Read(read =>
                             {
-                                read.Action("Municipios_Read", "Pensiones");
+                                read.Action("Responsable_Read", "Pensiones");
                             });
                         }))
                 </span>
