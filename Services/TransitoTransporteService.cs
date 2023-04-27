@@ -326,7 +326,7 @@ namespace GuanajuatoAdminUsuarios.Services
 
                 {
                     connection.Open();
-                    SqlCommand command = new SqlCommand("Select * from delegaciones", connection);
+                    SqlCommand command = new SqlCommand("Select * from catDelegaciones", connection);
                     command.CommandType = CommandType.Text;
                     using (SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection))
                     {

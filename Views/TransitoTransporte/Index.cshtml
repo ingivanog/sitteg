@@ -41,26 +41,26 @@
             }
         }
 
-        $(".export-pdf").click(function () {
-            // Convert the DOM element to a drawing using kendo.drawing.drawDOM
-            alert("caigo")
-            kendo.drawing.drawDOM($(".content-wrapper"))
-                .then(function (group) {
-                    // Render the result as a PDF file
-                    return kendo.drawing.exportPDF(group, {
-                        paperSize: "auto",
-                        margin: { left: "1cm", top: "1cm", right: "1cm", bottom: "1cm" }
-                    });
-                })
-                .done(function (data) {
-                    // Save the PDF file
-                    kendo.saveAs({
-                        dataURI: data,
-                        fileName: "TransitoTransporte.pdf",
-                        proxyURL: "@Url.Action("Pdf_Export_Save")"
-                    });
-                });
-        });
+        //$(".export-pdf").click(function () {
+        //    // Convert the DOM element to a drawing using kendo.drawing.drawDOM
+        //    alert("caigo")
+        //    kendo.drawing.drawDOM($(".content-wrapper"))
+        //        .then(function (group) {
+        //            // Render the result as a PDF file
+        //            return kendo.drawing.exportPDF(group, {
+        //                paperSize: "auto",
+        //                margin: { left: "1cm", top: "1cm", right: "1cm", bottom: "1cm" }
+        //            });
+        //        })
+        //        .done(function (data) {
+        //            // Save the PDF file
+        //            kendo.saveAs({
+        //                dataURI: data,
+        //                fileName: "TransitoTransporte.pdf",
+        //                proxyURL: "@Url.Action("Pdf_Export_Save")"
+        //            });
+        //        });
+        //});
 
 
     </script>
@@ -323,8 +323,8 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="controlButton my-3">
-
-                    <button type="button" onclick="submitExport()" class='btnPrimary'><h5 class="m-0"><i class='icon-data m-0'></i>&nbsp;&nbsp; <b>Reporte</b></h5></button>
+                    <button type="button" class='btnPrimary'>@Html.ActionLink("Reporte",  "CreatePdf","TransitoTransporte", null, new {@class="m-0"})</button>
+                    @*<button type="button" onclick="submitExport()" class='btnPrimary'><h5 class="m-0"><i class='icon-data m-0'></i>&nbsp;&nbsp; <b>Reporte</b></h5></button>*@
                     @*<button class="btnPrimary" type="button" onclick="submitExport()">  <h5 class="m-0"><b>Buscar</b></h5></button>*@
 
                     @*@(Html.Kendo().Button()
