@@ -146,6 +146,7 @@
             data: formData,
             success: function (result) {
                 $("#listadoGruas").html(result);
+                $('#addGrua').modal('hide');
             }
         });
 

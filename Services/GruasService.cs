@@ -146,17 +146,17 @@ namespace GuanajuatoAdminUsuarios.Services
         public int CrearGrua(Gruas2Model model)
         {
             int result = 0;
-            string strQuery = @"INSERT INTO gruas (@idConcesionario
-                                                   ,@idClasificacion
-                                                   ,@idTipoGrua
-                                                   ,@idSituacion
-                                                   ,@noEconomico
-                                                   ,@placas
-                                                   ,@modelo
-                                                   ,@capacidad
-                                                   ,@fechaActualizacion
-                                                   ,@actualizadoPor
-                                                   ,@estatus)";
+            string strQuery = @"INSERT INTO gruas VALUES(@idConcesionario
+                                                        ,@idClasificacion
+                                                        ,@idTipoGrua
+                                                        ,@idSituacion
+                                                        ,@noEconomico
+                                                        ,@placas
+                                                        ,@modelo
+                                                        ,@capacidad
+                                                        ,@fechaActualizacion
+                                                        ,@actualizadoPor
+                                                        ,@estatus)";
             using (SqlConnection connection = new SqlConnection(_sqlClientConnectionBD.GetConnection()))
             {
                 try
