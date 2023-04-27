@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using GuanajuatoAdminUsuarios.Services;
 
 using GuanajuatoAdminUsuarios.Interfaces;
+using GuanajuatoAdminUsuarios.Utils;
 using GuanajuatoAdminUsuarios.Framework;
 
 namespace GuanajuatoAdminUsuarios
@@ -61,6 +62,7 @@ namespace GuanajuatoAdminUsuarios
             // services.AddTransient<ConexionBD>();
 
             //Servicios
+            services.AddScoped(typeof(IPdfGenerator<>), typeof(PdfGenerator<>));
             services.AddScoped<ISqlClientConnectionBD, SqlClientConnectionBD>();
             services.AddScoped<IMarcasVehiculos, MarcasVehiculoService>();
             services.AddScoped<ISubmarcasVehiculos, SubmarcasVehiculosService>();
@@ -75,6 +77,10 @@ namespace GuanajuatoAdminUsuarios
             services.AddScoped<IConcesionariosService, ConcesionariosService>();
             services.AddScoped<IReporteAsignacionService, ReporteAsignacionService>();
             services.AddScoped<IEventoService, EventoService>();
+            services.AddScoped<IPensionesService, PensionesService>();
+            services.AddScoped<IDelegacionesService, DelegacionesService>();
+            
+
             services.AddScoped<ICatalogosService, CatalogosService>();
             services.AddScoped<ICatDictionary, CatDictionary>();
             services.AddScoped<IViewRenderService, ViewRenderService>();
