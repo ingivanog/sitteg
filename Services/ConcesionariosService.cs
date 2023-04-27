@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace GuanajuatoAdminUsuarios.Services
 {
@@ -24,7 +25,7 @@ namespace GuanajuatoAdminUsuarios.Services
                 try
                 {
                     connection.Open();
-                    SqlCommand command = new SqlCommand("Select * from Concesionarios", connection);
+                    SqlCommand command = new SqlCommand("Select * from Concesionarios where estatus = 1", connection);
                     command.CommandType = CommandType.Text;
                     using (SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection))
                     {
@@ -50,7 +51,55 @@ namespace GuanajuatoAdminUsuarios.Services
 
         }
 
+        public Concesionarios2Model GetConcesionarioById(int idConcesionario)
+        {
+            List<Concesionarios2Model> ListConcesionarios = new List<Concesionarios2Model>();
+            string strQuery = @"SELECT 
+                                idConcesionario
+                                ,concesionario
+                                ,idDelegacion
+                                ,idMunicipio
+                                ,alias
+                                ,razonSocial
+                                ,fechaActualizacion
+                                ,actualizadoPor
+                                ,estatus
+                                FROM concesionarios
+                                WHERE idConcesionario = @idConcesionario AND estatus = 1";
+            using (SqlConnection connection = new SqlConnection(_sqlClientConnectionBD.GetConnection()))
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(strQuery, connection);
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.Add(new SqlParameter("@idConcesionario", SqlDbType.Int)).Value = idConcesionario;
+                    using (SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection))
+                    {
+                        while (reader.Read())
+                        {
+                            Concesionarios2Model concesionarios = new Concesionarios2Model();
+                            concesionarios.idConcesionario = Convert.ToInt32(reader["idConcesionario"].ToString());
+                            concesionarios.nombre = reader["concesionario"].ToString();
+                            concesionarios.idDelegacion = Convert.ToInt32(reader["idDelegacion"].ToString());
+                            concesionarios.idMunicipio = Convert.ToInt32(reader["idMunicipio"].ToString());
+                            concesionarios.alias = reader["alias"].ToString();
+                            concesionarios.razonSocial = reader["razonSocial"].ToString();
+                            ListConcesionarios.Add(concesionarios);
+                        }
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    //Guardar la excepcion en algun log de errores
+                    //ex
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            return ListConcesionarios.FirstOrDefault();
 
+        }
         public List<Concesionarios2Model> GetConcesionarios2ByIdDelegacion(int idDelegacion)
         {
             List<Concesionarios2Model> ListConcesionarios = new List<Concesionarios2Model>();

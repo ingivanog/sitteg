@@ -17,12 +17,14 @@
             .Name("Grid")
             .Columns(columns =>
             {
+                columns.Bound(c => c.idGrua).Width(20).Hidden();
                 columns.Bound(p => p.municipio).Title("Municipio").Width(90);
                 columns.Bound(p => p.concesionario).Title("Concesionario").Width(90);
                 columns.Bound(p => p.noEconomico).Title("No. Economico").Width(90);
                 columns.Bound(c => c.modelo).Title("Modelo").Width(90);
                 columns.Bound(c => c.placas).Title("Placas").Width(90);
                 columns.Bound(c => c.tipoGrua).Title("Tipo Grúa").Width(90);
+                columns.Command(c => c.Custom("Editar").Click("editarGrua")).Width(100);
             }).HtmlAttributes(new { style = "height:350" })
             .Pageable(pager => pager.AlwaysVisible(true).Position(GridPagerPosition.Top).PageSizes(true))
             .Sortable()
@@ -36,16 +38,33 @@
 
 </div>
 
-@*<script>
-    $(document).ready(function () {
-        var grid = $("#Grid").data("kendoGrid");
+<script>
+    //$(document).ready(function () {
+    //    var grid = $("#Grid").data("kendoGrid");
 
-        var position = "top";
-        grid.setOptions({
-            pageable: {
-                position: position
-            }
-        });
-    });
+    //    var position = "top";
+    //    grid.setOptions({
+    //        pageable: {
+    //            position: position
+    //        }
+    //    });
+    //});
+    function editarGrua(e) {
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        console.log(dataItem);
 
-</script>*@
+        var idGrua = dataItem.idGrua;
+        console.log(idGrua);
+
+        $.ajax({
+            url: '@Url.Action("ajax_edit")', // URL de la acción del controlador
+            type: 'POST', // Tipo de solicitud HTTP (POST o GET)
+            data: { idGrua: idGrua }, // Datos que se enviarán al controlador
+            success: function (result) {
+                $('#ModalBodyEdit').html(result);
+                $('#editGrua').modal('show');
+
+            },
+        })
+    }
+</script>

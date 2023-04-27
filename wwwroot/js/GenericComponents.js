@@ -14,10 +14,34 @@
         },
         success: function (data) {
             $("#" + container).html(data);
-        },
-        error: function (xhr, status) {
-            var errmsg = xhr.responseText;
-            alert(errmsg);
+            
         }
     });
+}
+
+
+function sitteg_warning(msg) {
+    set_toastr_options(2000);
+    toastr.warning(msg, 'Error');
+}
+
+function sitteg_info(msg) {
+    set_toastr_options(2500);
+    toastr.info(msg, "Información");
+}
+
+function set_toastr_options(timeout) {
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "onclick": null,
+        "timeOut": timeout,
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
 }
