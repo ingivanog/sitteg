@@ -147,7 +147,13 @@
             success: function (result) {
                 $("#listadoGruas").html(result);
                 $('#addGrua').modal('hide');
-            }
+                sitteg_info('Elemento guardado correctamente')
+            },
+            error: function (xhr, status) {
+            var errmsg = xhr.responseText;
+            console.log(errmsg)
+            sitteg_warning('Lo sentimos, ha ocurrido un error.');
+        }
         });
 
         //$('#addDependencia').modal('hide');
