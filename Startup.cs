@@ -17,6 +17,7 @@ using GuanajuatoAdminUsuarios.Services;
 
 using GuanajuatoAdminUsuarios.Interfaces;
 using GuanajuatoAdminUsuarios.Utils;
+using GuanajuatoAdminUsuarios.Framework;
 
 namespace GuanajuatoAdminUsuarios
 {
@@ -76,11 +77,13 @@ namespace GuanajuatoAdminUsuarios
             services.AddScoped<IConcesionariosService, ConcesionariosService>();
             services.AddScoped<IReporteAsignacionService, ReporteAsignacionService>();
             services.AddScoped<IEventoService, EventoService>();
-            services.AddScoped<IGruas2Service, Gruas2Service>();
             services.AddScoped<IPensionesService, PensionesService>();
             services.AddScoped<IDelegacionesService, DelegacionesService>();
             
 
+            services.AddScoped<ICatalogosService, CatalogosService>();
+            services.AddScoped<ICatDictionary, CatDictionary>();
+            services.AddScoped<IViewRenderService, ViewRenderService>();
 
             services
                .AddControllersWithViews()

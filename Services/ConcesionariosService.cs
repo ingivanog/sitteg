@@ -56,7 +56,7 @@ namespace GuanajuatoAdminUsuarios.Services
             List<Concesionarios2Model> ListConcesionarios = new List<Concesionarios2Model>();
             string strQuery = @"SELECT 
                                 idConcesionario
-                                ,nombre
+                                ,concesionario
                                 ,idDelegacion
                                 ,idMunicipio
                                 ,alias
@@ -64,7 +64,7 @@ namespace GuanajuatoAdminUsuarios.Services
                                 ,fechaActualizacion
                                 ,actualizadoPor
                                 ,estatus
-                                FROM Concesionarios2
+                                FROM concesionarios
                                 WHERE idDelegacion = @idDelegacion AND estatus = 1";
             using (SqlConnection connection = new SqlConnection(_sqlClientConnectionBD.GetConnection()))
                 try
@@ -79,7 +79,7 @@ namespace GuanajuatoAdminUsuarios.Services
                         {
                             Concesionarios2Model concesionarios = new Concesionarios2Model();
                             concesionarios.idConcesionario = Convert.ToInt32(reader["idConcesionario"].ToString());
-                            concesionarios.nombre = reader["nombre"].ToString();
+                            concesionarios.nombre = reader["concesionario"].ToString();
                             concesionarios.idDelegacion = Convert.ToInt32(reader["idDelegacion"].ToString());
                             concesionarios.idMunicipio = Convert.ToInt32(reader["idMunicipio"].ToString());
                             concesionarios.alias = reader["alias"].ToString();
