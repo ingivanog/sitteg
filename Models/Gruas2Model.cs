@@ -2,6 +2,7 @@
 {
     public class Gruas2Model : EntityModel
     {
+        public int idDeposito { get; set; }
         public int idGrua { get; set; }
         public int idConcesionario { get; set; }
         public int idClasificacion { get; set; }

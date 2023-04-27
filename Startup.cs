@@ -77,6 +77,7 @@ namespace GuanajuatoAdminUsuarios
             services.AddScoped<IEventoService, EventoService>();
             services.AddScoped<ICatalogosService, CatalogosService>();
             services.AddScoped<ICatDictionary, CatDictionary>();
+            services.AddScoped<IViewRenderService, ViewRenderService>();
 
             services
                .AddControllersWithViews()

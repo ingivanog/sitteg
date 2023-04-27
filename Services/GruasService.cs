@@ -146,8 +146,7 @@ namespace GuanajuatoAdminUsuarios.Services
         public int CrearGrua(Gruas2Model model)
         {
             int result = 0;
-            string strQuery = @"INSERT INTO Gruas2 (@idGrua
-                                                   ,@idConcesionario
+            string strQuery = @"INSERT INTO gruas (@idConcesionario
                                                    ,@idClasificacion
                                                    ,@idTipoGrua
                                                    ,@idSituacion
@@ -165,7 +164,7 @@ namespace GuanajuatoAdminUsuarios.Services
                     connection.Open();
                     SqlCommand command = new SqlCommand(strQuery, connection);
                     command.CommandType = CommandType.Text;
-                    command.Parameters.Add(new SqlParameter("@idGrua", SqlDbType.Int)).Value = (object)model.idGrua ?? DBNull.Value;
+                    //command.Parameters.Add(new SqlParameter("@idGrua", SqlDbType.Int)).Value = (object)model.idGrua ?? DBNull.Value;
                     command.Parameters.Add(new SqlParameter("@idConcesionario", SqlDbType.Int)).Value = (object)model.idConcesionario ?? DBNull.Value;
                     command.Parameters.Add(new SqlParameter("@idClasificacion", SqlDbType.Int)).Value = (object)model.idClasificacion ?? DBNull.Value;
                     command.Parameters.Add(new SqlParameter("@idTipoGrua", SqlDbType.Int)).Value = (object)model.idTipoGrua ?? DBNull.Value;

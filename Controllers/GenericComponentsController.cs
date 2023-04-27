@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace GuanajuatoAdminUsuarios.Controllers
 {
-    public class GenericComponentsController : Controller
+    public class GenericComponentsController : BaseController
     {
         private readonly ICatDictionary _catDictionary;
-        public GenericComponentsController(ICatDictionary catDictionary)
+        public GenericComponentsController(IViewRenderService viewRenderService, ICatDictionary catDictionary) : base(viewRenderService)
         {
             _catDictionary = catDictionary;
         }
@@ -32,7 +32,7 @@ namespace GuanajuatoAdminUsuarios.Controllers
                 .ToList();
 
             ViewBag.multiple = multiple == "true";
-            ViewBag.ModelList = new SelectList(modelList, "Id", "Text");
+            ViewBag.ModelList = modelList.FirstOrDefault().CatalogList;
             ViewBag.isRequired = isRequired == "true";
             ViewBag.htmlName = htmlName;
             ViewBag.functionName = functionName;

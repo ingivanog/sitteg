@@ -4,53 +4,14 @@
     bool isRequired = (bool)ViewBag.isRequired;
     string htmlName = (string)ViewBag.htmlName;
     string functionName = (string)ViewBag.functionName;
-    dynamic htmlAttributes;
-    if (isRequired)
-    {
-        htmlAttributes = new { @@class = "form-control", data_val = "true", data_val_required = "Campo requerido", @onchange = functionName };
-    }
-    else
-    {
-        if (multiple)
-        {
-            htmlAttributes = new { @@class = "form-control", @multiple = "multiple" };
-        }
-        else
-        {
-            htmlAttributes = new { @@class = "form-control", @onchange = functionName };
-        }
-    }
+    var modelList = (IEnumerable<SystemCatalogListModel>)ViewBag.ModelList;
 }
 
-@if (!multiple)
-{
-    @(Html.Kendo().DropDownList()
-                  .Name(htmlName)
-                  .BindTo((SelectList)ViewBag.ModelList)
-                  .OptionLabel("-- Seleccione --")
-                  .HtmlAttributes(htmlAttributes)
-                  .Filter(FilterType.Contains))
-   @* (Html.Kendo().DropDownList()
-                             .Name("DropDownListName")
-                            .DataValueField("CategoryID")
-                            .DataTextField("CategoryName")
-                            .BindTo((System.Collections.IEnumerable)ViewBag.categories);*@
-
-    @*@Html.DropDownList(htmlName, (SelectList)ViewBag.ModelList, "-- Seleccione --", (object)htmlAttributes)*@
-}
-@*else
-{
-    @Html.DropDownList(htmlName, (SelectList)ViewBag.ModelList, (object)htmlAttributes)
-}
-
-@if (multiple)
-{
-    @Styles.Render("~/Content/select2")
-    @Scripts.Render("~/bundles/select2")
-    <script>
-        var htmlName = '@htmlName';
-        $(document).ready(function () {
-            $("#" + htmlName).select2();
-        });
-    </script>
-}*@
+@(Html.Kendo().DropDownList()
+        .DataValueField("Id")
+        .DataTextField("Text")
+        .Name(htmlName)
+        .BindTo(modelList)
+        .OptionLabel("-- Seleccione --")
+        .HtmlAttributes(new { style = "width:100%;", id= htmlName })
+        .Filter(FilterType.Contains))

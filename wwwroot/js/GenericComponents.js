@@ -3,6 +3,7 @@
     $.ajax({
         type: "POST",
         url: '/GenericComponents/GetComboByCatalog',
+        dataType: "html",
         data: {
             "htmlName": htmlName,
             "isRequired": isRequired,
@@ -15,8 +16,8 @@
             $("#" + container).html(data);
         },
         error: function (xhr, status) {
-            var errmsg = msg_err_gral;
-            semg_error(errmsg);
+            var errmsg = xhr.responseText;
+            alert(errmsg);
         }
     });
 }

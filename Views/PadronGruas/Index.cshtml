@@ -51,7 +51,15 @@
                     </div>
                 </div>
             </div>
-
+            <div class="col-12 col-md-6 col-lg-7 col-xl-auto">
+                <div class="row">
+                    <div class="col-auto btnOutline btnOutlinePrimary my-2 mx-auto mx-xl-2 p-0">
+                        <button href="#" id="btnNuevaGrua" onclick="mostrarModal()">
+                            <h6 class="m-0 d-flex align-items-center"><i class="icon-addDependencia h5 mb-0 me-2"></i><b>Agregar nueva grúa</b></h6>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-12">
@@ -98,13 +106,60 @@
             </div>
             <div class="col-12 col-md-6 col-lg-5">
             </div>
-
         <div id="listadoGruas">
             <partial name="_ListadoGruas" model="Model" />
         </div>
     </section>
 </div>
 
+<div class="modal fade modalCustom" id="addGrua" aria-labelledby="addGruaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row align-items-center justify-content-between px-4 px-md-4 pt-3 pb-2">
+                    <div class="col-auto pe-0">
+                        <div class="row align-items-center justify-content-center justify-content-md-start">
+                            <div class="col-auto pe-0">
+                                <i class="icon-addDependencia h1 colorPrimary"></i>
+                            </div>
+                            <div class="col-auto my-3">
+                                <h2 class="m-0 h3"><b>Agregar grúa</b></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<h4 class="modal-title">Agregar grúa</h4>*@
+                <div class="col-auto">
+                    <div class="row">
+                        <div class="col-auto my-4">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-body" id="ModalBodyCreate">
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    function mostrarModal() {
+        $.ajax({
+            url: '@Url.Action("ajax_create")',
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (data) {
+                $('#ModalBodyCreate').html(data);
+                $('#addGrua').modal('show');
+            }
+        });
+    }
+</script>
 
 
 
