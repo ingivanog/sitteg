@@ -9,6 +9,7 @@ namespace GuanajuatoAdminUsuarios.Models
         public string Pension { get; set; }
         public string Permiso { get; set; }
         public int IdDelegacion { get; set; }
+        public int IdResponsable { get; set; }
         public int IdMunicipio { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }

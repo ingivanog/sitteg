@@ -17,15 +17,18 @@ namespace GuanajuatoAdminUsuarios.Controllers
         private readonly ITransitoTransporteService _transitoTransporteService;
         private readonly IDependencias _dependeciaService;
         private readonly IGruasService _gruasService;
+        private readonly IPdfGenerator<TransitoTransporteModel> _pdfService;
 
 
         public TransitoTransporteController(ITransitoTransporteService transitoTransporteService,
-            IDependencias dependeciaService, IGruasService gruasService
+            IDependencias dependeciaService, IGruasService gruasService,
+            IPdfGenerator<TransitoTransporteModel> pdfService
             )
         {
             _transitoTransporteService = transitoTransporteService;
             _dependeciaService = dependeciaService;
             _gruasService = gruasService;
+            _pdfService = pdfService;
         }
 
         public IActionResult Index()
@@ -35,6 +38,15 @@ namespace GuanajuatoAdminUsuarios.Controllers
             searchModel.ListTransitoTransporte = listTransitoTransporte;
             return View(searchModel);
         }
+
+        public FileResult CreatePdf()
+        {
+            string[] columnas = new string[] { "Uno", "Dos", "Tres", "Cuatro" };
+            List<TransitoTransporteModel> listTransitoTransporte = _transitoTransporteService.GetAllTransitoTransporte();
+            var result = _pdfService.CreatePdf(listTransitoTransporte, "ejemplo", 4, "Transportes", columnas);
+            return File(result.Item1, "application/pdf", result.Item2);
+        }
+
 
         [HttpPost]
         public ActionResult ajax_BuscarTransito(TransitoTransporteBusquedaModel model)
