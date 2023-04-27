@@ -18,5 +18,11 @@ namespace GuanajuatoAdminUsuarios.Models
         public DateTime FechaActualizacion { get; set; }
         public int ActualizadoPor { get; set; }
         public int estatus { get; set; }
+
+        public string municipio { get; set; }
+
+        public string responsable { get; set; }
+        public string delegacion { get; set; }
+        
     }
 }

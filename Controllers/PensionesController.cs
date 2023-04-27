@@ -15,16 +15,20 @@ namespace GuanajuatoAdminUsuarios.Controllers
         private readonly IPensionesService _pensionesService;
         private readonly IDelegacionesService _delegacionesService;
         private readonly IMunicipiosService _municipiosService;
+        private readonly IResponsableService _responsableService;
+        
 
         public PensionesController(
             IPensionesService pensionesService,
             IDelegacionesService delegacionesService,
-            IMunicipiosService municipiosService
+            IMunicipiosService municipiosService,
+            IResponsableService responsableService
             )
         {
             _pensionesService = pensionesService;
             _delegacionesService = delegacionesService;
             _municipiosService = municipiosService;
+            _responsableService = responsableService;
         }
 
 
@@ -51,6 +55,11 @@ namespace GuanajuatoAdminUsuarios.Controllers
             return Json(result);
         }
 
+        public JsonResult Responsable_Read()
+        {
+            var result = new SelectList(_responsableService.GetResponsables(), "idResponsable", "responsable");
+            return Json(result);
+        }
 
 
         [HttpPost]

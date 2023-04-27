@@ -24,7 +24,16 @@ namespace GuanajuatoAdminUsuarios.Services
                 try
                 {
                     connection.Open();
-                    const string SqlTransact = @"select * from pensiones where estatus=1";
+                    const string SqlTransact = @"select pen.idPension,	pen.indicador, pen.pension,
+                                           pen.permiso,pen.idDelegacion, pen.idMunicipio,pen.direccion,
+                                           pen.telefono, pen.correo,pen.idConcesionario,pen.fechaActualizacion,
+                                           pen.actualizadoPor,pen.estatus, pen.idResponsable, mun.municipio,
+                                           re.responsable,del.delegacion
+                                          from pensiones pen 
+                                          join catMunicipios mun on  pen.idMunicipio= mun.idMunicipio
+                                          join catDelegaciones del on  pen.idDelegacion= del.idDelegacion
+                                          join catResponsablePensiones re on pen.idResponsable = re.idResponsable
+                                          where pen.estatus=1";
 
                     SqlCommand command = new SqlCommand(SqlTransact, connection);
                     command.CommandType = CommandType.Text;
@@ -45,6 +54,9 @@ namespace GuanajuatoAdminUsuarios.Services
                             pension.FechaActualizacion = Convert.ToDateTime(reader["fechaActualizacion"].ToString());
                             pension.ActualizadoPor = Convert.ToInt32(reader["actualizadoPor"].ToString());
                             pension.estatus = Convert.ToInt32(reader["estatus"].ToString());
+                            pension.municipio = reader["municipio"].ToString();
+                            pension.responsable = reader["responsable"].ToString();
+                            pension.delegacion = reader["delegacion"].ToString();
                             ListPensiones.Add(pension);
 
                         }
@@ -72,8 +84,16 @@ namespace GuanajuatoAdminUsuarios.Services
                 try
                 {
                     connection.Open();
-                    const string SqlTransact = @"select * from pensiones
-                    where idDelegacion = @IdDelegacion OR pension LIKE '%' + @pension + '%'";
+                    const string SqlTransact = @"select pen.idPension,	pen.indicador, pen.pension,
+                                           pen.permiso,pen.idDelegacion, pen.idMunicipio,pen.direccion,
+                                           pen.telefono, pen.correo,pen.idConcesionario,pen.fechaActualizacion,
+                                           pen.actualizadoPor,pen.estatus, pen.idResponsable, mun.municipio,
+                                           re.responsable,del.delegacion
+                                          from pensiones pen 
+                                          join catMunicipios mun on  pen.idMunicipio= mun.idMunicipio
+                                          join catDelegaciones del on  pen.idDelegacion= del.idDelegacion
+                                          join catResponsablePensiones re on pen.idResponsable = re.idResponsable
+                                          where pen.estatus=1 and (idDelegacion = @IdDelegacion OR pension LIKE '%' + @pension + '%')";
 
                     SqlCommand command = new SqlCommand(SqlTransact, connection);
 
@@ -98,6 +118,9 @@ namespace GuanajuatoAdminUsuarios.Services
                             pension.FechaActualizacion = Convert.ToDateTime(reader["fechaActualizacion"].ToString());
                             pension.ActualizadoPor = Convert.ToInt32(reader["actualizadoPor"].ToString());
                             pension.estatus = Convert.ToInt32(reader["estatus"].ToString());
+                            pension.municipio = reader["municipio"].ToString();
+                            pension.responsable = reader["responsable"].ToString();
+                            pension.delegacion = reader["delegacion"].ToString();
                             ListPensiones.Add(pension);
 
                         }
