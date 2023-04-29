@@ -11,7 +11,7 @@
                             <h6 class="px-4 text-muted">Completa los datos obligatorios para guardar.</h6>
                         </div>
                     </div>
-                    <form id="frmCrearGrua">
+                    <form id="frmEditarGrua">
                         @Html.HiddenFor(f=> f.idGrua)
                         <div class="row">
                             <div class="form-group col-md-4">
@@ -22,7 +22,9 @@
                                         .BindTo((SelectList)ViewBag.CatDelegaciones)
                                         .OptionLabel("-- Seleccione --")
                                         .HtmlAttributes(new { style = "width:100%;", id = "ddlDelegaciones" })
-                                        .Filter(FilterType.Contains))
+                                        .Filter(FilterType.Contains)
+                                        .Popup(p => p.AppendTo("frmEditarGrua"))
+                                        )
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
@@ -119,7 +121,7 @@
                                 </div>
                                 <div class="col-auto btnOutline btnOutlinePrimary my-2 mx-auto mx-xl-2 p-0">
                                     <div class="controlButton">
-                                        <button class="btnPrimary px-3" onclick="crearGrua()">
+                                        <button class="btnPrimary px-3" onclick="editarGrua()">
                                             <h5 class="m-0"><b>Guardar</b></h5>
                                         </button>
                                     </div>
@@ -133,19 +135,19 @@
     </div>
 </div>
 <script>
-    function crearGrua() {
+    function editarGrua() {
         //var Mydata = $("frmCrearGrua").serializeObject();
-        var formData = $("#frmCrearGrua").serialize();
+        var formData = $("#frmEditarGrua").serialize();
         //var formData = new FormData();
         //formData.delete('idDelegacion');
         //alert(json);
         $.ajax({
-            url: '@Url.Action("ajax_createGrua")',
+            url: '@Url.Action("ajax_editGrua")',
             type: 'POST',
             data: formData,
             success: function (result) {
                 $("#listadoGruas").html(result);
-                $('#addGrua').modal('hide');
+                $('#editGrua').modal('hide');
                 sitteg_info('Elemento guardado correctamente')
             },
             error: function (xhr, status) {

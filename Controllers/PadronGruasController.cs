@@ -91,7 +91,7 @@ namespace GuanajuatoAdminUsuarios.Controllers
         }
 
         [HttpPost]
-        public IActionResult ajax_updateGrua(Gruas2Model model)
+        public IActionResult ajax_editGrua(Gruas2Model model)
         {
             //var model = json.ToObject<Gruas2Model>();
             var errors = ModelState.Values.Select(s => s.Errors);
@@ -103,5 +103,6 @@ namespace GuanajuatoAdminUsuarios.Controllers
             }
             return RedirectToAction("Index");
         }
+
     }
 }

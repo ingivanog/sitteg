@@ -87,25 +87,25 @@
             </div>
             <div class="controlForm col-md-4">
                 <label>Tipo Grua:</label>
-                    @(Html.Kendo().DropDownList()
-                        .Name("idTipoGruas")
-                        .BindTo((SelectList)ViewBag.CatTipoGruas)
-                        .OptionLabel("-- Seleccione --")
-                        .HtmlAttributes(new { style = "width:100%;", id = "ddlTipoGrua" })
-                        .Filter(FilterType.Contains))
+                @(Html.Kendo().DropDownList()
+                    .Name("idTipoGruas")
+                    .BindTo((SelectList)ViewBag.CatTipoGruas)
+                    .OptionLabel("-- Seleccione --")
+                    .HtmlAttributes(new { style = "width:100%;", id = "ddlTipoGrua" })
+                    .Filter(FilterType.Contains))
             </div>
         </div>
 
 
 
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="controlButton my-3">
-                    <button class="btnPrimary" type="button" onclick="submitSearch()">  <h5 class="m-0"><b>Buscar</b></h5></button>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="controlButton my-3">
+                <button class="btnPrimary" type="button" onclick="submitSearch()">  <h5 class="m-0"><b>Buscar</b></h5></button>
 
-                </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-5">
-            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5">
+        </div>
         <div id="listadoGruas">
             <partial name="_ListadoGruas" model="Model" />
         </div>
@@ -147,41 +147,15 @@
     </div>
 </div>
 
-<div class="modal fade modalCustom" id="editGrua" aria-labelledby="editGruaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="row align-items-center justify-content-between px-4 px-md-4 pt-3 pb-2">
-                    <div class="col-auto pe-0">
-                        <div class="row align-items-center justify-content-center justify-content-md-start">
-                            <div class="col-auto pe-0">
-                                <i class="icon-addDependencia h1 colorPrimary"></i>
-                            </div>
-                            <div class="col-auto my-3">
-                                <h2 class="m-0 h3"><b>Editar grúa</b></h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @*<h4 class="modal-title">Agregar grúa</h4>*@
-                <div class="col-auto">
-                    <div class="row">
-                        <div class="col-auto my-4">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="modal-body" id="ModalBodyEdit">
-            </div>
-        </div>
-
-    </div>
-</div>
 <script>
+    $(document).ready(function () {
+        $("#addGrua").on("show.bs.modal shown.bs.modal", function (e) {
+            $("body").removeClass("modal-open").find(".modal-backdrop").remove();
+        });
+        $("#addGrua").on('hide.bs.modal', function () {
+            $('#ModalBodyCreate').html('');
+        });
+    });
     function mostrarModal() {
         $.ajax({
             url: '@Url.Action("ajax_create")',
