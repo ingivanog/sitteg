@@ -193,7 +193,7 @@ namespace GuanajuatoAdminUsuarios.Services
         public int EditarGrua(Gruas2Model model)
         {
             int result = 0;
-            string strQuery = @"UPDATE Gruas2 SET idConcesionario       = @idConcesionario    
+            string strQuery = @"UPDATE gruas SET idConcesionario       = @idConcesionario    
                                                  ,idClasificacion	   = @idClasificacion	
                                                  ,idTipoGrua			   = @idTipoGrua			
                                                  ,idSituacion		   = @idSituacion		
@@ -350,7 +350,7 @@ namespace GuanajuatoAdminUsuarios.Services
         {
             List<Gruas2Model> ListGruas = new List<Gruas2Model>();
             string strQuery = @"SELECT
-                                idGrua
+                                 idGrua
                                 ,idConcesionario
                                 ,idClasificacion
                                 ,idTipoGrua
@@ -362,7 +362,7 @@ namespace GuanajuatoAdminUsuarios.Services
                                 ,fechaActualizacion
                                 ,actualizadoPor
                                 ,estatus
-                                FROM Gruas2
+                                FROM gruas
                                 WHERE idGrua = @idGrua AND estatus = 1";
             using (SqlConnection connection = new SqlConnection(_sqlClientConnectionBD.GetConnection()))
                 try
