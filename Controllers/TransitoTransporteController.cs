@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using static GuanajuatoAdminUsuarios.Utils.CatalogosEnums;
 using System.Linq;
 using System.Net;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace GuanajuatoAdminUsuarios.Controllers
 {
@@ -39,14 +41,59 @@ namespace GuanajuatoAdminUsuarios.Controllers
             return View(searchModel);
         }
 
-        public FileResult CreatePdf()
+        [HttpGet]
+        public FileResult CreatePdf(string data)
         {
-            string[] columnas = new string[] { "Uno", "Dos", "Tres", "Cuatro" };
-            List<TransitoTransporteModel> listTransitoTransporte = _transitoTransporteService.GetAllTransitoTransporte();
-            var result = _pdfService.CreatePdf(listTransitoTransporte, "ejemplo", 4, "Transportes", columnas);
+            var model = JsonConvert.DeserializeObject<TransitoTransporteBusquedaModel>(data);
+            model.FolioInfraccion = model.FolioInfraccion == string.Empty ? null : model.FolioInfraccion;
+            model.FolioSolicitud= model.FolioSolicitud == string.Empty ? null : model.FolioSolicitud;
+            model.NumeroEconomico = model.NumeroEconomico == string.Empty ? null : model.NumeroEconomico;
+            model.Placas = model.Placas == string.Empty ? null : model.Placas;
+            model.Propietario = model.Propietario == string.Empty ? null : model.Propietario;
+
+            string[] columnas = new string[] { "Serie", "Placa", "FechaIngreso", "Folio" };
+            Dictionary<string, string> ColumnsNames = new Dictionary<string, string>()
+            {
+            {"fullSolicitudfolioInfraccion","Fecha_evento/Folio_Solicitud/Folio_Infracción"},
+            {"fullVehiculo","Vehículo"},
+            {"FechaIngreso","Fecha Ingreso"},
+            {"FechaLiberacion","Fecha Liberación"},
+            };
+            var ListTransitoModel = _transitoTransporteService.GetTransitoTransportes(model);
+            var result = _pdfService.CreatePdf("ReporteTransitoTransporte", "Transito Transporte", 4, ColumnsNames, ListTransitoModel);
             return File(result.Item1, "application/pdf", result.Item2);
         }
 
+        [HttpGet]
+        public FileResult CreatePdfUnRegistro(int IdDeposito)
+        {
+          
+            string[] columnas = new string[] { "Serie", "Placa", "FechaIngreso", "Folio" };
+            Dictionary<string, string> ColumnsNames = new Dictionary<string, string>()
+            {
+            {"fullSolicitudfolioInfraccion","Fecha_evento/Folio_Solicitud/Folio_Infracción"},
+            {"fullVehiculo","Vehículo"},
+            {"FechaIngreso","Fecha Ingreso"},
+            {"FechaLiberacion","Fecha Liberación"},
+            };
+            var TransitoModel = _transitoTransporteService.GetTransitoTransporteById(IdDeposito);
+            var result = _pdfService.CreatePdf("ReporteTransitoTransporte", "Transito Transporte", 4, ColumnsNames, TransitoModel);
+            return File(result.Item1, "application/pdf", result.Item2);
+        }
+
+        private static byte[] StreamToBytes(Stream input)
+        {
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
+        }
 
         [HttpPost]
         public ActionResult ajax_BuscarTransito(TransitoTransporteBusquedaModel model)

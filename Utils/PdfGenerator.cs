@@ -6,91 +6,257 @@ using iText = iTextSharp.text;
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using System.Linq;
+using Kendo.Mvc.Extensions;
+using static Azure.Core.HttpHeader;
+using System.ComponentModel;
+using static iTextSharp.text.pdf.AcroFields;
+using iTextSharp.text;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting.Internal;
+using System.Drawing;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+//using Microsoft.Extensions.Hosting;
 
 namespace GuanajuatoAdminUsuarios.Utils
 {
     public class PdfGenerator<T> : IPdfGenerator<T> where T : class
     {
-        //private readonly List<T> _enum;
-
-        //public PdfGenerator(List<T> enumerator)
-        //{
-        //    _enum = enumerator;
-        //}
-
-        public (MemoryStream, string) CreatePdf(List<T> ModelData, string NamePdf, int SizeColumns, string title, string[] ColumnsNames)
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        public PdfGenerator(IWebHostEnvironment hostingEnvironment)
         {
-            MemoryStream workStream = new MemoryStream();
-            StringBuilder status = new StringBuilder("");
-            DateTime dTime = DateTime.Now;
+            _hostingEnvironment = hostingEnvironment;
 
-            string strPDFFileName = string.Format(NamePdf + dTime.ToString("yyyyMMdd") + "-" + ".pdf");
-
-            iText.Document doc = new iText.Document();
-            doc.SetMargins(0, 0, 0, 0);
-
-            PdfPTable tableLayout = new PdfPTable(SizeColumns);
-            doc.SetMargins(10, 10, 10, 0);
-            PdfWriter.GetInstance(doc, workStream).CloseStream = false;
-            doc.Open();
-            BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            iTextSharp.text.Font fontInvoice = new iTextSharp.text.Font(bf, 20, iTextSharp.text.Font.NORMAL);
-            iText.Paragraph paragraph = new iText.Paragraph(title, fontInvoice);
-            paragraph.Alignment = iText.Element.ALIGN_CENTER;
-            doc.Add(paragraph);
-            iText.Paragraph p3 = new iText.Paragraph();
-            p3.SpacingAfter = 6;
-            doc.Add(p3);
-
-            doc.Add(Add_Content_To_PDF(tableLayout, ModelData, ColumnsNames));
-
-            doc.Close();
-            byte[] byteInfo = workStream.ToArray();
-            workStream.Write(byteInfo, 0, byteInfo.Length);
-            workStream.Position = 0;
-            return (workStream, strPDFFileName);
-            //return File(workStream, "application/pdf", strPDFFileName);
         }
 
-        protected PdfPTable Add_Content_To_PDF(PdfPTable tableLayout, List<T> ModelData, string[] ColumnsNames)
+        public (MemoryStream, string) CreatePdf(string NamePdf, string Title, int SizeColumns, Dictionary<string, string> ColumnsNames, List<T> ModelData)
         {
-            float[] headers = { 50, 24, 45, 35 }; //Header Widths  
-            tableLayout.SetWidths(headers); //Set the pdf headers  
-            tableLayout.WidthPercentage = 100; //Set the PDF File witdh percentage  
-            tableLayout.HeaderRows = 1;
-            var count = 1;
-            //Add header  
-            AddCellToHeader(tableLayout, "CustomerName");
-            AddCellToHeader(tableLayout, "Address");
-            AddCellToHeader(tableLayout, "Email");
-            AddCellToHeader(tableLayout, "ZipCode");
-
-            foreach (var objectItem in ModelData)
+            try
             {
+                MemoryStream workStream = new MemoryStream();
+                StringBuilder status = new StringBuilder("");
+                DateTime dTime = DateTime.Now;
+
+                string strPDFFileName = string.Format(NamePdf + "-" + dTime.ToString("ddMMyyyy") + ".pdf");
+
+                iText.Document doc = new iText.Document();
+                doc.SetMargins(10, 10, 20, 10);
+
+                PdfWriter.GetInstance(doc, workStream).CloseStream = false;
+                doc.Open();
+
+                #region Header
+                PdfPTable tableHeader = new PdfPTable(2);
+                tableHeader.DefaultCell.Border = iText.Rectangle.NO_BORDER;
+                float[] headers = new float[] { 30, 60 };
+                tableHeader.SetWidths(headers);
+                tableHeader.WidthPercentage = 100;
+
+                var path = Path.Combine(_hostingEnvironment.WebRootPath, "img", "logo-gto.png");
+                iText.Image image = iText.Image.GetInstance(path);
+                image.ScaleToFit(150f, 150f);
+                image.ScaleToFitHeight = false;
+                tableHeader.AddCell(new PdfPCell(image)).Border = 0;
+
+                BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                iText.Font fontInvoice = new iText.Font(bf, 20, iText.Font.NORMAL);
+                tableHeader.AddCell(new PdfPCell(new iText.Phrase(Title, fontInvoice))).Border = 0;
+
+                doc.Add(tableHeader);
+
+                #endregion
+
+                doc.Add(new Paragraph("\n"));
+
+                //iText.Paragraph p3 = new iText.Paragraph();
+                //p3.SpacingAfter = 6;
+                //doc.Add(p3);
+
+                PdfPTable tableLayout = new PdfPTable(SizeColumns);
+                doc.Add(Add_Content_To_PDF(tableLayout, ModelData, ColumnsNames, SizeColumns));
+
+                doc.Close();
+                byte[] byteInfo = workStream.ToArray();
+                workStream.Write(byteInfo, 0, byteInfo.Length);
+                workStream.Position = 0;
+                return (workStream, strPDFFileName);
+            }
+            catch (Exception ex)
+            {
+                return (null, null);
+            }
+        }
+
+        public (MemoryStream, string) CreatePdf(string NamePdf, string Title, int SizeColumns, Dictionary<string, string> ColumnsNames, T ModelData)
+        {
+            try
+            {
+                MemoryStream workStream = new MemoryStream();
+                StringBuilder status = new StringBuilder("");
+                DateTime dTime = DateTime.Now;
+
+                string strPDFFileName = string.Format(NamePdf + "-" + dTime.ToString("ddMMyyyy") + ".pdf");
+
+                iText.Document doc = new iText.Document();
+                doc.SetMargins(10, 10, 20, 10);
+
+                PdfWriter.GetInstance(doc, workStream).CloseStream = false;
+                doc.Open();
+
+                #region Header
+                PdfPTable tableHeader = new PdfPTable(2);
+                tableHeader.DefaultCell.Border = iText.Rectangle.NO_BORDER;
+                float[] headers = new float[] { 30, 60 };
+                tableHeader.SetWidths(headers);
+                tableHeader.WidthPercentage = 100;
+
+                var path = Path.Combine(_hostingEnvironment.WebRootPath, "img", "logo-gto.png");
+                iText.Image image = iText.Image.GetInstance(path);
+                image.ScaleToFit(150f, 150f);
+                image.ScaleToFitHeight = false;
+                tableHeader.AddCell(new PdfPCell(image)).Border = 0;
+
+                BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                iText.Font fontInvoice = new iText.Font(bf, 20, iText.Font.NORMAL);
+                tableHeader.AddCell(new PdfPCell(new iText.Phrase(Title, fontInvoice))).Border = 0;
+
+                doc.Add(tableHeader);
+
+                #endregion
+
+                doc.Add(new Paragraph("\n"));
+
+                //iText.Paragraph p3 = new iText.Paragraph();
+                //p3.SpacingAfter = 6;
+                //doc.Add(p3);
+
+                PdfPTable tableLayout = new PdfPTable(SizeColumns);
+                doc.Add(Add_Content_To_PDF(tableLayout, ModelData, ColumnsNames, SizeColumns));
+
+                doc.Close();
+                byte[] byteInfo = workStream.ToArray();
+                workStream.Write(byteInfo, 0, byteInfo.Length);
+                workStream.Position = 0;
+                return (workStream, strPDFFileName);
+            }
+            catch (Exception ex)
+            {
+                return (null, null);
+            }
+        }
+
+        protected PdfPTable Add_Content_To_PDF(PdfPTable tableLayout, T ModelData, Dictionary<string, string> ColumnsNames, int size)
+        {
+            if (ColumnsNames.Count == size)
+            {
+
+                float[] headers = new float[(size)];
+                var porcentHeader = (float)100 / size;
+                for (int i = 0; i < size; i++)
+                {
+                    headers[i] = porcentHeader;
+                }
+
+                tableLayout.SetWidths(headers);
+                tableLayout.WidthPercentage = 100;
+                tableLayout.HeaderRows = 1;
+                var count = 1;
+
+                //Agrega nombre de columnas
+                foreach (var column in ColumnsNames)
+                {
+                    AddCellToTitleHeader(tableLayout, column.Value);
+                }
+
+                Type type = typeof(T);
+
+
                 if (count >= 1)
                 {
-                    AddCellToBody(tableLayout, objectItem.ToString(), count);
-                    AddCellToBody(tableLayout, objectItem.ToString(), count);
-                    AddCellToBody(tableLayout, objectItem.ToString(), count);
-                    AddCellToBody(tableLayout, objectItem.ToString(), count);
+                    foreach (var item in ColumnsNames)
+                    {
+                        PropertyInfo property = type.GetProperty(item.Key);
+                        var value = property.GetValue(ModelData);
+                        AddCellToBody(tableLayout, value.ToString(), count);
+                    }
                     count++;
                 }
+                return tableLayout;
             }
+            return null;
+        }
+
+        protected PdfPTable Add_Content_To_PDF(PdfPTable tableLayout, List<T> ModelData, Dictionary<string, string> ColumnsNames, int size)
+        {
+            if (ColumnsNames.Count == size)
+            {
+
+                float[] headers = new float[(size)];
+                var porcentHeader = (float)100 / size;
+                for (int i = 0; i < size; i++)
+                {
+                    headers[i] = porcentHeader;
+                }
+
+                tableLayout.SetWidths(headers);
+                tableLayout.WidthPercentage = 100;
+                tableLayout.HeaderRows = 1;
+                var count = 1;
+
+                //Agrega nombre de columnas
+                foreach (var column in ColumnsNames)
+                {
+                    AddCellToTitleHeader(tableLayout, column.Value);
+                }
+
+                Type type = typeof(T);
+
+                #region Comment
+                //Busqueda de 
+                //List<string> NameHeaders = new List<string>();
+                //PropertyInfo[] propertyInfos = type.GetProperties();
+                //foreach (PropertyInfo item in propertyInfos)
+                //{
+                //    var name = item.Name;
+                //    var findPropertyBool = ColumnsNames.ContainsKey(name);
+                //    //var findPropertyBool = Array.Find(ColumnsNames, n => n.Equals(name)) != null ? true : false;
+                //    if (findPropertyBool)
+                //    {
+                //        NameHeaders.Add(name);
+                //    }
+                //}
+                //si implemento la busqueda de propiedades tendria que ordenar la lista como viene la de ColumnsNames
+                //NameHeaders.OrderBy(x => x.Equals(ColumnsNames.Keys));
+                #endregion
+
+                foreach (dynamic objectItem in ModelData)
+                {
+                    if (count >= 1)
+                    {
+                        foreach (var item in ColumnsNames)
+                        {
+                            PropertyInfo property = type.GetProperty(item.Key);
+                            var value = property.GetValue(objectItem);
+                            AddCellToBody(tableLayout, value.ToString(), count);
+                        }
+                        count++;
+                    }
+                }
+                return tableLayout;
+            }
+            return null;
+        }
 
 
-            //foreach (var cust in customerData())
-            //{
-            //    if (count >= 1)
-            //    {
-            //        //Add body  
-            //        AddCellToBody(tableLayout, cust.CustomerName.ToString(), count);
-            //        AddCellToBody(tableLayout, cust.Address.ToString(), count);
-            //        AddCellToBody(tableLayout, cust.Email.ToString(), count);
-            //        AddCellToBody(tableLayout, cust.ZipCode.ToString(), count);
-            //        count++;
-            //    }
-            //}
-            return tableLayout;
+        private static void AddCellToTitleHeader(PdfPTable tableLayout, string cellText)
+        {
+            tableLayout.AddCell(new PdfPCell(new iText.Phrase(cellText, new iText.Font(iText.Font.FontFamily.HELVETICA, 8, 1, iText.BaseColor.BLACK)))
+            {
+                HorizontalAlignment = iText.Element.ALIGN_LEFT,
+                Padding = 8,
+                BackgroundColor = new iText.BaseColor(185, 200, 230)
+            });
         }
 
         private static void AddCellToHeader(PdfPTable tableLayout, string cellText)
@@ -111,7 +277,8 @@ namespace GuanajuatoAdminUsuarios.Utils
                 {
                     HorizontalAlignment = iText.Element.ALIGN_LEFT,
                     Padding = 8,
-                    BackgroundColor = new iText.BaseColor(255, 255, 255)
+                    BackgroundColor = new iText.BaseColor(211, 211, 211)
+
                 });
             }
             else
@@ -120,7 +287,7 @@ namespace GuanajuatoAdminUsuarios.Utils
                 {
                     HorizontalAlignment = iText.Element.ALIGN_LEFT,
                     Padding = 8,
-                    BackgroundColor = new iText.BaseColor(211, 211, 211)
+                    BackgroundColor = new iText.BaseColor(255, 255, 255)
                 });
             }
         }

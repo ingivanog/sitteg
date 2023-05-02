@@ -42,7 +42,10 @@
         $('#myUpdateModal').modal('show');
     }
 
-
+    function downLoadPdf(Id) {
+       
+        window.location = '/TransitoTransporte/CreatePdfUnRegistro?IdDeposito=' + Id;
+    }
 </script>
 
 @*<div class="row justify-content-between mb-1 titleCustom">*@
@@ -85,7 +88,7 @@
                 ).Title("Eliminar").Sortable(false).Width(70);
 
                 columns.Bound(p => p.IdDeposito).ClientTemplate(
-                "<button onclick=\"ShowGruaPopUp('#= IdGrua #')\" class='w-100 btn'><h6 class='m-0 colorPrimary'><i class='icon-data me-2'></i></h6></button>"
+                "<button onclick=\"downLoadPdf('#= IdDeposito #')\" class='w-100 btn'><h6 class='m-0 colorPrimary'><i class='icon-data me-2'></i></h6></button>"
                 ).Title("Exportar").Sortable(false).Width(70);
 
             }).HtmlAttributes(new { style = "height:350" })
