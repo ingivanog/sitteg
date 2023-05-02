@@ -147,9 +147,9 @@ namespace GuanajuatoAdminUsuarios.Services
             return ListItems;
         }
 
-        public List<PensionesModel> GetPensiones()
+        public List<PensionModel> GetPensiones()
         {
-            List<PensionesModel> ListPensiones = new List<PensionesModel>();
+            List<PensionModel> ListPensiones = new List<PensionModel>();
 
             using (SqlConnection connection = new SqlConnection(_sqlClientConnectionBD.GetConnection()))
                 try
@@ -161,7 +161,7 @@ namespace GuanajuatoAdminUsuarios.Services
                     {
                         while (reader.Read())
                         {
-                            PensionesModel pension = new PensionesModel();
+                            PensionModel pension = new PensionModel();
                             pension.IdPension = Convert.ToInt32(reader["IdPension"].ToString());
                             pension.Pension = reader["Pension"].ToString();
                             ListPensiones.Add(pension);

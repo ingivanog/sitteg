@@ -1,19 +1,7 @@
-﻿@model List<PensionesModel>
+﻿@model List<PensionModel>
 
 <script>
-    function ShowUpdatePopUp(id) {
-        $.ajax({
-            url: '@Url.Action("ajax_UpdatePartial")',
-            type: 'GET',
-            data: { id: id },
-            contentType: "application/json; charset=utf-8",
-            dataType: "html",
-            success: function (value) {
-                $('#ModalBodyUpdate').html(value);
-                $('#myUpdateModal').modal('show');
-            }
-        });
-    }
+    
 
 
 </script>
@@ -35,24 +23,26 @@
             .Name("Grid")
             .Columns(columns =>
             {
-                columns.Bound(p => p.Pension).Title("Nombre").Width(150);
+                columns.Bound(c => c.IdPension).Width(20).Hidden();
+                columns.Bound(p => p.Pension).Hidden().ClientGroupHeaderTemplate("<label>Pensión: #=value#</label><button onclick='editarPensionByGrid()' class='btn'><h6 class='m-0 colorPrimary'><i class='icon-edit me-2'></i></h6></button>").Title("Pension").Width(150);
                 columns.Bound(p => p.Permiso).Title("Permiso").Width(100);
-                columns.Bound(p => p.IdDelegacion).Title("Delegación").Width(100);
+                columns.Bound(p => p.delegacion).Title("Delegación").Width(100);
                 columns.Bound(c => c.Direccion).Title("Dirección").Width(150);
                 columns.Bound(c => c.Telefono).Title("Teléfono").Width(100);
                 columns.Bound(c => c.Correo).Title("Correo electrónico").Width(150);
-             @*   columns.Bound(c => c.Concesionario).Title("Responsable").Width(90);
-                columns.Bound(c => c.Concesionario).Title("Asociados").Width(90);*@
+                columns.Bound(c => c.responsable).Title("Responsable").Width(90);
+                columns.Bound(c => c.concesionario).Title("Asociados").Width(90);
+                columns.Bound(c => c.placas).Title("Grúa (Placas)").Width(90);
 
-                columns.Bound(p => p.IdPension).ClientTemplate(
-                "<button onclick=\"ShowUpdatePopUp('#= IdPension #')\" class='w-100 btn'><h6 class='m-0 colorPrimary'><i class='icon-edit me-2'></i></h6></button>"
-                ).Title("Editar").Sortable(false).Width(70);
+                @*columns.Bound(p => p.IdPension).ClientTemplate(
+                "<button onclick=\"ShowUpdatePopUp('#=IdPension#')\" class='w-100 btn'><h6 class='m-0 colorPrimary'><i class='icon-edit me-2'></i></h6></button>"
+                ).Title("Editar").Sortable(false).Width(70);*@
 
 
-
+@*
                 columns.Bound(p => p.IdPension).ClientTemplate(
                 "<button onclick=\"ShowEstadoPopUp('#= IdPension #')\" class='w-100 btn'><h6 class='m-0 colorPrimary'><i class='icon-edit me-2'></i></h6></button>"
-                ).Title("Edo.").Sortable(false).Width(70);
+                ).Title("Edo.").Sortable(false).Width(70);*@
 
 
 
@@ -63,37 +53,28 @@
             .DataSource(dataSource => dataSource
             .Ajax()
             .ServerOperation(false)
-            )
-            )
+            .Group(groups => groups.Add(p => p.Pension))
+            ))
     </div>
 
 </div>
 
-@*Modal*@
-
-
-<div class="modal fade modalCustom" id="myUpdateModal" tabindex="-1" aria-labelledby="editVehiculo" aria-hidden="true">
-    <div class="modal-dialog modal-xl boxShadow modal-dialog-centered">
-        <div class="modal-content">
-            <section class=" bg-white rounded">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="bg-light py-1"></div>
-                    </div>
-
-                </div>
-
-                <div class="modal-body" id="ModalBodyUpdate">
-                </div>
-
-
-            </section>
-        </div>
-    </div>
-</div>
-
-<style>
-    .k-grid-content {
-        overflow-x: scroll;
+<script>
+    function editarPensionByGrid() {
+        var grid = $("#Grid").data("kendoGrid");
+        var dataItem = grid.dataItem($(event.srcElement).closest("tr").next());
+        $.ajax({
+            url: '@Url.Action("ajax_ModalEditarPension")',
+            type: 'GET',
+            data: { idPension: dataItem.IdPension },
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (value) {
+                $('#modalBodyEditarPension').html(value);
+                $('#modalEditarPension').modal('show');
+            }
+        });
     }
-</style>
+</script>
+
+

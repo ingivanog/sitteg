@@ -1,8 +1,10 @@
-﻿using GuanajuatoAdminUsuarios.Interfaces;
+﻿using GuanajuatoAdminUsuarios.Framework;
+using GuanajuatoAdminUsuarios.Interfaces;
 using GuanajuatoAdminUsuarios.Models;
 using GuanajuatoAdminUsuarios.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,18 +15,14 @@ namespace GuanajuatoAdminUsuarios.Controllers
         #region DPIServices
 
         private readonly IPensionesService _pensionesService;
-        private readonly IDelegacionesService _delegacionesService;
-        private readonly IMunicipiosService _municipiosService;
+        private readonly ICatDictionary _catDictionary;
 
         public PensionesController(
-            IPensionesService pensionesService,
-            IDelegacionesService delegacionesService,
-            IMunicipiosService municipiosService
-            )
+            ICatDictionary catDictionary,
+            IPensionesService pensionesService)
         {
             _pensionesService = pensionesService;
-            _delegacionesService = delegacionesService;
-            _municipiosService = municipiosService;
+            _catDictionary = catDictionary;
         }
 
 
@@ -32,85 +30,101 @@ namespace GuanajuatoAdminUsuarios.Controllers
 
         public IActionResult Index()
         {
-            PensionesBusquedaModel searchModel = new PensionesBusquedaModel();
-            List<PensionesModel> ListPensiones = _pensionesService.GetAllPensiones();
-            searchModel.ListPensiones = ListPensiones;
-            return View(searchModel);
+            List<PensionModel> pensionesList = _pensionesService.GetAllPensiones();
+            var catDelegaciones = _catDictionary.GetCatalog("CatDelegaciones", "0");
+            ViewBag.CatDelegaciones = new SelectList(catDelegaciones.CatalogList, "Id", "Text");
+            return View(pensionesList);
         }
 
-
-        public JsonResult Delegacion_Read()
+        [HttpGet]
+        public ActionResult ajax_BuscarPensiones(string pension, int? idDelegacion)
         {
-            var result = new SelectList(_delegacionesService.GetDelegaciones(), "IdDelegacion", "Delegacion");
-            return Json(result);
-        }
-
-        public JsonResult Municipios_Read()
-        {
-            var result = new SelectList(_municipiosService.GetMunicipios(), "IdMunicipio", "Municipio");
-            return Json(result);
-        }
-
-
-
-        [HttpPost]
-        public ActionResult ajax_BuscarPensiones(PensionesBusquedaModel model)
-        {
-            var ListPensionesModel = _pensionesService.GetPensiones(model);
+            var ListPensionesModel = _pensionesService.GetPensionesToGrid(pension, idDelegacion);
             return PartialView("_ListadoPensiones", ListPensionesModel);
 
         }
 
 
         [HttpPost]
-        public ActionResult CreatePartial()
+        public ActionResult ajax_ModalCrearPension()
         {
-            return PartialView("_Create");
+            var catDelegaciones = _catDictionary.GetCatalog("CatDelegaciones", "0");
+            var catResponsablesPensiones = _catDictionary.GetCatalog("CatResponsablesPensiones", "0");
+            var catMunicipios = _catDictionary.GetCatalog("CatMunicipios", "0");
+
+            ViewBag.CatDelegaciones = new SelectList(catDelegaciones.CatalogList, "Id", "Text");
+            ViewBag.CatResponsablesPensiones = new SelectList(catResponsablesPensiones.CatalogList, "Id", "Text");
+            ViewBag.CatMunicipios = new SelectList(catMunicipios.CatalogList, "Id", "Text");
+            return PartialView("_CrearPension", new PensionModel());
         }
 
 
         [HttpPost]
-        public ActionResult CreatePartialModal(PensionesModel model)
+        public ActionResult ajax_CrearPension(PensionModel model)
         {
             //var errors = ModelState.Values.Select(s => s.Errors);
             //ModelState.Remove("CategoryName");
             if (ModelState.IsValid)
             {
-                //Crear el Pension ...
+                int idPension = _pensionesService.CrearPension(model);
+                List<Gruas2Model> gruasPensionesList = _pensionesService.GetGruasDisponiblesByIdPension(idPension);
+                model.IdPension = idPension;
 
+                var catDelegaciones = _catDictionary.GetCatalog("CatDelegaciones", "0");
+                var catResponsablesPensiones = _catDictionary.GetCatalog("CatResponsablesPensiones", "0");
+                var catMunicipios = _catDictionary.GetCatalog("CatMunicipios", "0");
 
-                List<PensionesModel> ListPensiones = _pensionesService.GetAllPensiones();
-                return PartialView("_ListadoPensiones", ListPensiones);
+                ViewBag.CatDelegaciones = new SelectList(catDelegaciones.CatalogList, "Id", "Text");
+                ViewBag.CatResponsablesPensiones = new SelectList(catResponsablesPensiones.CatalogList, "Id", "Text");
+                ViewBag.CatMunicipios = new SelectList(catMunicipios.CatalogList, "Id", "Text");
+
+                ViewBag.ListadoGruasPensiones = gruasPensionesList;
+                return PartialView("_EditarPension", model);
             }
             //SetDDLCategories();
             //return View("Create");
-            return PartialView("_Create");
+            return RedirectToAction("Index");
         }
 
 
         [HttpGet]
-        public ActionResult ajax_UpdatePartial(int id)
+        public ActionResult ajax_ModalEditarPension(int idPension)
         {
-            return PartialView("_Update");
+            var model = _pensionesService.GetPensionById(idPension).FirstOrDefault();
+            
+            var gruasPensionesList = _pensionesService.GetGruasDisponiblesByIdPension(model.IdPension);
+
+            var catDelegaciones = _catDictionary.GetCatalog("CatDelegaciones", "0");
+            var catResponsablesPensiones = _catDictionary.GetCatalog("CatResponsablesPensiones", "0");
+            var catMunicipios = _catDictionary.GetCatalog("CatMunicipios", "0");
+
+            ViewBag.CatDelegaciones = new SelectList(catDelegaciones.CatalogList, "Id", "Text");
+            ViewBag.CatResponsablesPensiones = new SelectList(catResponsablesPensiones.CatalogList, "Id", "Text");
+            ViewBag.CatMunicipios = new SelectList(catMunicipios.CatalogList, "Id", "Text");
+
+            ViewBag.ListadoGruasPensiones = gruasPensionesList;
+            return PartialView("_EditarPension", model);
         }
 
 
         [HttpPost]
-        public ActionResult UpdatePartialModal(PensionesModel model)
+        public ActionResult ajax_EditarPension(PensionModel model)
         {
-            //var errors = ModelState.Values.Select(s => s.Errors);
-            //ModelState.Remove("CategoryName");
             if (ModelState.IsValid)
             {
-                //Modificar el Pension ...
-
-
-                List<PensionesModel> ListPensiones = _pensionesService.GetAllPensiones();
-                return PartialView("_ListadoPensiones", ListPensiones);
+                int idPension = _pensionesService.EditarGrua(model);
+                int eliminaGruas = _pensionesService.EliminarPensionGruas(model.IdPension);
+                if (!string.IsNullOrEmpty(model.strIdGruas))
+                {
+                    var strListIdGruas = model.strIdGruas.Split(',').Select(s=> Convert.ToInt32(s)).ToList();
+                    int altaGruas = _pensionesService.CrearPensionGruas(model.IdPension, strListIdGruas);
+                }
+                List<PensionModel> pensionesList = _pensionesService.GetAllPensiones();
+                return PartialView("_ListadoPensiones", pensionesList);
             }
             //SetDDLCategories();
             //return View("Create");
-            return PartialView("_Create");
+            return RedirectToAction("Index");
         }
     }
 }

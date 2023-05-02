@@ -2,39 +2,7 @@
 
 <head>
     <script>
-        function submitSearch() {
-
-            var placas = $("#txtPlacas").val();
-            var noEconomico = $("#txtNoEconomico").val();
-            var idTipoGrua = $("#ddlTipoGrua").val();
-            //console.log(Mydata);
-            //$.ajax({
-            //    url: '@Url.Action("ajax_BuscarPadron")',
-            //    type: 'POST',
-            //    data: Mydata,
-            //    success: function (result) {
-            //        $("#listadoGruas").html(result);
-            //    }
-            //});
-
-            $.ajax({
-                type: "GET",
-                url: '@Url.Action("ajax_BuscarGruas")',
-                data: {
-                    "placas": placas,
-                    "noEconomico": noEconomico,
-                    "idTipoGrua": idTipoGrua,
-                },
-                success: function (data) {
-                    $("#listadoGruas").html(data);
-                }
-                //,
-                //error: function (xhr, status) {
-                //    var errmsg = msg_err_gral;
-                //    semg_error(errmsg);
-                //}
-            });
-        }
+        
 
     </script>
 </head>
@@ -166,6 +134,40 @@
                 $('#ModalBodyCreate').html(data);
                 $('#addGrua').modal('show');
             }
+        });
+    }
+
+    function submitSearch() {
+
+        var placas = $("#txtPlacas").val();
+        var noEconomico = $("#txtNoEconomico").val();
+        var idTipoGrua = $("#ddlTipoGrua").val();
+        //console.log(Mydata);
+        //$.ajax({
+        //    url: '@Url.Action("ajax_BuscarPadron")',
+        //    type: 'POST',
+        //    data: Mydata,
+        //    success: function (result) {
+        //        $("#listadoGruas").html(result);
+        //    }
+        //});
+
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("ajax_BuscarGruas")',
+            data: {
+                "placas": placas,
+                "noEconomico": noEconomico,
+                "idTipoGrua": idTipoGrua,
+            },
+            success: function (data) {
+                $("#listadoGruas").html(data);
+            }
+            //,
+            //error: function (xhr, status) {
+            //    var errmsg = msg_err_gral;
+            //    semg_error(errmsg);
+            //}
         });
     }
 </script>

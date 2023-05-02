@@ -17,6 +17,7 @@
         public string clasificacion { get; set; }
         public string tipoGrua { get; set; }
         public string situacion { get; set; }
+        public bool isPension { get; set; }
 
     }
 }
