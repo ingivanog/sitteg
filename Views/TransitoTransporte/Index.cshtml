@@ -41,27 +41,26 @@
             }
         }
 
-        //$(".export-pdf").click(function () {
-        //    // Convert the DOM element to a drawing using kendo.drawing.drawDOM
-        //    alert("caigo")
-        //    kendo.drawing.drawDOM($(".content-wrapper"))
-        //        .then(function (group) {
-        //            // Render the result as a PDF file
-        //            return kendo.drawing.exportPDF(group, {
-        //                paperSize: "auto",
-        //                margin: { left: "1cm", top: "1cm", right: "1cm", bottom: "1cm" }
-        //            });
-        //        })
-        //        .done(function (data) {
-        //            // Save the PDF file
-        //            kendo.saveAs({
-        //                dataURI: data,
-        //                fileName: "TransitoTransporte.pdf",
-        //                proxyURL: "@Url.Action("Pdf_Export_Save")"
-        //            });
-        //        });
-        //});
 
+        function downLoadPdfFiltered() {
+            var data = {
+                Placas: $('#txtPlacas').val(),
+                FolioSolicitud: $('#txtFolioSolicitud').val(),
+                FolioInfraccion: $('#txtFolioInfraccion').val(),
+                Propietario: $('#txtPropietario').val(),
+                NumeroEconomico: $('#txtNumeroEconomico').val(),
+                IdDelegacion: parseInt($('#txtDelegacion').val()),
+                IdPension: $('#txtPension').val(),
+                IdEstatus: $('#txtEstatus').val(),
+                IdDependenciaGenera: $('#txtDependenciaGenera').val(),
+                IdDependenciaTransito: $('#txtDependenciaTransito').val(),
+                IdDependenciaNoTransito: $('#txtDependenciaNoTransito').val(),
+                FechaIngreso: $('#start').val(),
+                FechaIngresoFin: $('#end').val()
+            };
+            var json = JSON.stringify(data);
+            window.location = '/TransitoTransporte/CreatePdf?data=' + json;
+        }
 
     </script>
 </head>
@@ -99,7 +98,7 @@
                         @(Html.Kendo().TextBoxFor(t => t.Placas)
                             .Label(l => l.Content("Placas:"))
                             .Placeholder("Ingresa placas")
-                            .HtmlAttributes(new { style = "width: 100%" })
+                            .HtmlAttributes(new { style = "width: 100%", Id = "txtPlacas" })
                             )
                     </span>
                 </div>
@@ -110,7 +109,7 @@
                     @(Html.Kendo().TextBoxFor(t => t.FolioSolicitud)
                         .Label(l => l.Content("Folio Solicitud:"))
                         .Placeholder("Ingresa folio solicitud")
-                        .HtmlAttributes(new { style = "width: 100%" })
+                        .HtmlAttributes(new { style = "width: 100%", Id = "txtFolioSolicitud" })
                         )
 
                 </div>
@@ -121,7 +120,7 @@
                     @(Html.Kendo().TextBoxFor(t => t.FolioInfraccion)
                         .Label(l => l.Content("Folio Infracción"))
                         .Placeholder("Ingresa folio infracción")
-                        .HtmlAttributes(new { style = "width: 100%" })
+                        .HtmlAttributes(new { style = "width: 100%", Id = "txtFolioInfraccion" })
                         )
                 </div>
             </div>
@@ -131,7 +130,7 @@
                     @(Html.Kendo().TextBoxFor(t => t.Propietario)
                         .Label(l => l.Content("Propietario Vehículo"))
                         .Placeholder("Ingresa propietario del vehículo")
-                        .HtmlAttributes(new { style = "width: 100%" })
+                        .HtmlAttributes(new { style = "width: 100%", Id = "txtPropietario" })
                         )
                 </div>
             </div>
@@ -141,7 +140,7 @@
                     @(Html.Kendo().TextBoxFor(t => t.NumeroEconomico)
                         .Label(l => l.Content("No_Económico"))
                         .Placeholder("Ingresa No_Económico")
-                        .HtmlAttributes(new { style = "width: 100%" })
+                        .HtmlAttributes(new { style = "width: 100%", Id = "txtNumeroEconomico" })
                         )
                 </div>
             </div>
@@ -154,7 +153,7 @@
                             .DataTextField("Text")
                             .DataValueField("Value")
                             .OptionLabel("Seleccione Delegación...")
-                            .HtmlAttributes(new { style = "width:100%;" })
+                            .HtmlAttributes(new { style = "width:100%;", Id = "txtDelegacion" })
                             .Filter(FilterType.Contains)
                             .DataSource(source =>
                             {
@@ -175,7 +174,7 @@
                             .DataTextField("Text")
                             .DataValueField("Value")
                             .OptionLabel("Seleccione Pensión...")
-                            .HtmlAttributes(new { style = "width:100%;" })
+                            .HtmlAttributes(new { style = "width:100%;", Id = "txtPension" })
                             .Filter(FilterType.Contains)
                             .DataSource(source =>
                             {
@@ -196,7 +195,7 @@
                             .DataTextField("Text")
                             .DataValueField("Value")
                             .OptionLabel("Seleccione Estatus...")
-                            .HtmlAttributes(new { style = "width:100%;" })
+                            .HtmlAttributes(new { style = "width:100%;", Id = "txtEstatus" })
                             .Filter(FilterType.Contains)
                             .DataSource(source =>
                             {
@@ -217,7 +216,7 @@
                             .DataTextField("Text")
                             .DataValueField("Value")
                             .OptionLabel("Seleccione TTO_TTE...")
-                            .HtmlAttributes(new { style = "width:100%;" })
+                            .HtmlAttributes(new { style = "width:100%;", Id = "txtDependenciaGenera" })
                             .Filter(FilterType.Contains)
                             .DataSource(source =>
                             {
@@ -238,7 +237,7 @@
                             .DataTextField("Text")
                             .DataValueField("Value")
                             .OptionLabel("Seleccione Dependencia(TTO_TTE)...")
-                            .HtmlAttributes(new { style = "width:100%;" })
+                            .HtmlAttributes(new { style = "width:100%;", Id = "txtDependenciaTransito" })
                             .Filter(FilterType.Contains)
                             .DataSource(source =>
                             {
@@ -259,7 +258,7 @@
                             .DataTextField("Text")
                             .DataValueField("Value")
                             .OptionLabel("Seleccione Dependencia Envía...")
-                            .HtmlAttributes(new { style = "width:100%;" })
+                            .HtmlAttributes(new { style = "width:100%;", Id = "txtDependenciaNoTransito" })
                             .Filter(FilterType.Contains)
                             .DataSource(source =>
                             {
@@ -323,14 +322,10 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="controlButton my-3">
-                    <button type="button" class='btnPrimary'>@Html.ActionLink("Reporte",  "CreatePdf","TransitoTransporte", null, new {@class="m-0"})</button>
-                    @*<button type="button" onclick="submitExport()" class='btnPrimary'><h5 class="m-0"><i class='icon-data m-0'></i>&nbsp;&nbsp; <b>Reporte</b></h5></button>*@
-                    @*<button class="btnPrimary" type="button" onclick="submitExport()">  <h5 class="m-0"><b>Buscar</b></h5></button>*@
+                    <button class="btnPrimary" type="button" onclick="downLoadPdfFiltered()">  <h5 class="m-0"><i class='icon-data m-0'></i>&nbsp;&nbsp<b>Reporte</b></h5></button>
 
-                    @*@(Html.Kendo().Button()
-                    .Name("Reporte")
-                    .HtmlAttributes(new { @class = "btnPrimary" })
-                    .Content("<h5 class=\"m-0\"><i class='icon-file me-2'></i><b>Reporte</b></h5>"))*@
+                    @*<button type="button" class='btnPrimary'>@Html.ActionLink("Reporte",  "CreatePdf","TransitoTransporte", new{Placas=Model.Placas}, new {@class="m-0"})</button>*@
+
                 </div>
             </div>
 
