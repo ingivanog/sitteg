@@ -1,0 +1,205 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\.DS_Store",
+      "PackagePath": "staticwebassets\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\css\\.DS_Store",
+      "PackagePath": "staticwebassets\\css\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\css\\fonts\\.DS_Store",
+      "PackagePath": "staticwebassets\\css\\fonts\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\css\\fonts\\SITTEG.eot",
+      "PackagePath": "staticwebassets\\css\\fonts\\SITTEG.eot"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\css\\fonts\\SITTEG.svg",
+      "PackagePath": "staticwebassets\\css\\fonts\\SITTEG.svg"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\css\\fonts\\SITTEG.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\SITTEG.ttf"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\css\\fonts\\SITTEG.woff",
+      "PackagePath": "staticwebassets\\css\\fonts\\SITTEG.woff"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\css\\plugins\\toastr.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\toastr.min.css"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\css\\site.min.css",
+      "PackagePath": "staticwebassets\\css\\site.min.css"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\img\\banner1.svg",
+      "PackagePath": "staticwebassets\\img\\banner1.svg"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\img\\banner2.svg",
+      "PackagePath": "staticwebassets\\img\\banner2.svg"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\img\\banner3.svg",
+      "PackagePath": "staticwebassets\\img\\banner3.svg"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\img\\banner4.svg",
+      "PackagePath": "staticwebassets\\img\\banner4.svg"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\img\\logo-gto.png",
+      "PackagePath": "staticwebassets\\img\\logo-gto.png"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\js\\GenericComponents.js",
+      "PackagePath": "staticwebassets\\js\\GenericComponents.js"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\js\\site.min.js",
+      "PackagePath": "staticwebassets\\js\\site.min.js"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\js\\toastr.min.js",
+      "PackagePath": "staticwebassets\\js\\toastr.min.js"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\bootstrap\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\jquery-ajax-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-ajax-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\jquery-ajax-unobtrusive\\README.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-ajax-unobtrusive\\README.md"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\jquery-ajax-unobtrusive\\dist\\jquery.unobtrusive-ajax.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-ajax-unobtrusive\\dist\\jquery.unobtrusive-ajax.js"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\jquery-ajax-unobtrusive\\dist\\jquery.unobtrusive-ajax.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-ajax-unobtrusive\\dist\\jquery.unobtrusive-ajax.min.js"
+    },
+    {
+      "Id": "C:\\Inssoft\\SITTEG\\SITTEG-GUANAJUATO\\wwwroot\\lib\\jquery-ajax-unobtrusive\\package.json",
+      "PackagePath": "staticwebassets\\lib\\jquery-ajax-unobtrusive\\package.json"
+    },
+    {
+      "Id": "obj\\Debug\\netcoreapp7.0\\staticwebassets\\msbuild.GuanajuatoAdminUsuarios.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\netcoreapp7.0\\staticwebassets\\msbuild.build.GuanajuatoAdminUsuarios.props",
+      "PackagePath": "build\\GuanajuatoAdminUsuarios.props"
+    },
+    {
+      "Id": "obj\\Debug\\netcoreapp7.0\\staticwebassets\\msbuild.buildMultiTargeting.GuanajuatoAdminUsuarios.props",
+      "PackagePath": "buildMultiTargeting\\GuanajuatoAdminUsuarios.props"
+    },
+    {
+      "Id": "obj\\Debug\\netcoreapp7.0\\staticwebassets\\msbuild.buildTransitive.GuanajuatoAdminUsuarios.props",
+      "PackagePath": "buildTransitive\\GuanajuatoAdminUsuarios.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

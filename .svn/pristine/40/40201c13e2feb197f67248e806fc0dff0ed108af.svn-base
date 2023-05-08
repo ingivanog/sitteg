@@ -1,0 +1,477 @@
+is_global = true
+build_property.TargetFramework = netcoreapp7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GuanajuatoAdminUsuarios
+build_property.RootNamespace = GuanajuatoAdminUsuarios
+build_property.ProjectDir = C:\Inssoft\SITTEG\SITTEG-GUANAJUATO\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Inssoft\SITTEG\SITTEG-GUANAJUATO
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Areas/Administracion/Views/Oficina/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYWNpb25cVmlld3NcT2ZpY2luYVxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Areas/Administracion/Views/Oficina/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYWNpb25cVmlld3NcT2ZpY2luYVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Areas/Administracion/Views/Oficina/Inicio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYWNpb25cVmlld3NcT2ZpY2luYVxJbmljaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Areas/Administracion/Views/Usuario/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYWNpb25cVmlld3NcVXN1YXJpb1xDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Areas/Administracion/Views/Usuario/Detalle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYWNpb25cVmlld3NcVXN1YXJpb1xEZXRhbGxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Areas/Administracion/Views/Usuario/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYWNpb25cVmlld3NcVXN1YXJpb1xFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Areas/Administracion/Views/Usuario/Inicio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYWNpb25cVmlld3NcVXN1YXJpb1xJbmljaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Anexo/Anexo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5leG9cQW5leG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Colores/IndexModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3Jlc1xJbmRleE1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Colores/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3Jlc1xfQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Colores/_Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3Jlc1xfRWxpbWluYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Colores/_ListaColores.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3Jlc1xfTGlzdGFDb2xvcmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Colores/_Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sb3Jlc1xfVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Dependencias/IndexModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwZW5kZW5jaWFzXEluZGV4TW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Dependencias/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwZW5kZW5jaWFzXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Dependencias/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwZW5kZW5jaWFzXF9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Dependencias/_ListaDependencias.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwZW5kZW5jaWFzXF9MaXN0YURlcGVuZGVuY2lhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Dependencias/_Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwZW5kZW5jaWFzXF9VcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Depositos/Depositos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9zXERlcG9zaXRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/DiasInhabiles/IndexModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhc0luaGFiaWxlc1xJbmRleE1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/DiasInhabiles/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhc0luaGFiaWxlc1xfQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/DiasInhabiles/_Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhc0luaGFiaWxlc1xfRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/DiasInhabiles/_Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhc0luaGFiaWxlc1xfRWxpbWluYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/DiasInhabiles/_ListaDiasInhabiles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhc0luaGFiaWxlc1xfTGlzdGFEaWFzSW5oYWJpbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/GenericComponents/_GenericDropDownCatalogs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJpY0NvbXBvbmVudHNcX0dlbmVyaWNEcm9wRG93bkNhdGFsb2dzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Inicio/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvXEFib3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Inicio/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvXENvbnRhY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Inicio/Examples.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvXEV4YW1wbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Inicio/Inicio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvXEluaWNpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Inicio/Marca.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvXE1hcmNhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/LiberacionVehiculo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGliZXJhY2lvblZlaGljdWxvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/LiberacionVehiculo/_ListadoVehiculos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGliZXJhY2lvblZlaGljdWxvXF9MaXN0YWRvVmVoaWN1bG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/LiberacionVehiculo/_UpdateLiberacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGliZXJhY2lvblZlaGljdWxvXF9VcGRhdGVMaWJlcmFjaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MarcasVehiculos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MarcasVehiculos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MarcasVehiculos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MarcasVehiculos/IndexModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXEluZGV4TW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MarcasVehiculos/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MarcasVehiculos/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXF9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MarcasVehiculos/_ListaMarcasVehiculos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXF9MaXN0YU1hcmNhc1ZlaGljdWxvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MarcasVehiculos/_Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzVmVoaWN1bG9zXF9VcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/ModificacionVehiculos/ModificacionVehiculos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kaWZpY2FjaW9uVmVoaWN1bG9zXE1vZGlmaWNhY2lvblZlaGljdWxvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MotivosInfraccion/IndexModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW90aXZvc0luZnJhY2Npb25cSW5kZXhNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MotivosInfraccion/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW90aXZvc0luZnJhY2Npb25cX0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MotivosInfraccion/_Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW90aXZvc0luZnJhY2Npb25cX0VkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MotivosInfraccion/_Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW90aXZvc0luZnJhY2Npb25cX0VsaW1pbmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/MotivosInfraccion/_ListaMotivosInfraccion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW90aXZvc0luZnJhY2Npb25cX0xpc3RhTW90aXZvc0luZnJhY2Npb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Oficiales/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZpY2lhbGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Oficiales/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZpY2lhbGVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Oficiales/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZpY2lhbGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Oficiales/IndexModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZpY2lhbGVzXEluZGV4TW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Oficiales/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZpY2lhbGVzXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Oficiales/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZpY2lhbGVzXF9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Oficiales/_ListaOficiales.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZpY2lhbGVzXF9MaXN0YU9maWNpYWxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/PadronDepositosGruas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkcm9uRGVwb3NpdG9zR3J1YXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/PadronDepositosGruas/_ListadoPadron.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkcm9uRGVwb3NpdG9zR3J1YXNcX0xpc3RhZG9QYWRyb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/PadronGruas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkcm9uR3J1YXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/PadronGruas/_CrearGrua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkcm9uR3J1YXNcX0NyZWFyR3J1YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/PadronGruas/_EditarGrua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkcm9uR3J1YXNcX0VkaXRhckdydWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/PadronGruas/_ListadoGruas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkcm9uR3J1YXNcX0xpc3RhZG9HcnVhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/PDFExample/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUERGRXhhbXBsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Pensiones/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuc2lvbmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Pensiones/_CrearPension.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuc2lvbmVzXF9DcmVhclBlbnNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Pensiones/_EditarPension.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuc2lvbmVzXF9FZGl0YXJQZW5zaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Pensiones/_ListadoGruasPensiones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuc2lvbmVzXF9MaXN0YWRvR3J1YXNQZW5zaW9uZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Pensiones/_ListadoPensiones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuc2lvbmVzXF9MaXN0YWRvUGVuc2lvbmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Product/IndexMod.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleE1vZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/ReporteAsignacionServicios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZUFzaWduYWNpb25TZXJ2aWNpb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/ReporteAsignacionServicios/_ListadoReporteAsignacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZUFzaWduYWNpb25TZXJ2aWNpb3NcX0xpc3RhZG9SZXBvcnRlQXNpZ25hY2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SalariosMinimos/IndexModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsYXJpb3NNaW5pbW9zXEluZGV4TW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SalariosMinimos/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsYXJpb3NNaW5pbW9zXF9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SalariosMinimos/_Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsYXJpb3NNaW5pbW9zXF9FbGltaW5hci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SalariosMinimos/_ListaSalariosMinimos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsYXJpb3NNaW5pbW9zXF9MaXN0YVNhbGFyaW9zTWluaW1vcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SalariosMinimos/_Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsYXJpb3NNaW5pbW9zXF9VcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/Components/Menu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVudVxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/Boolean.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xCb29sZWFuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/Country.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xDb3VudHJ5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/Currency.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xDdXJyZW5jeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/Date.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xEYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/DateTime.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xEYXRlVGltZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/Email.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xFbWFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/EmailAddress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xFbWFpbEFkZHJlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/GridForeignKey.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xHcmlkRm9yZWlnbktleS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/Integer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xJbnRlZ2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/Number.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xOdW1iZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/Password.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/String.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xTdHJpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/Time.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xUaW1lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/EditorTemplates/Url.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvclRlbXBsYXRlc1xVcmwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/_UserDataPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyRGF0YVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SubmarcasVehiculos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VibWFyY2FzVmVoaWN1bG9zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SubmarcasVehiculos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VibWFyY2FzVmVoaWN1bG9zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SubmarcasVehiculos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VibWFyY2FzVmVoaWN1bG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SubmarcasVehiculos/IndexModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VibWFyY2FzVmVoaWN1bG9zXEluZGV4TW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SubmarcasVehiculos/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VibWFyY2FzVmVoaWN1bG9zXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SubmarcasVehiculos/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VibWFyY2FzVmVoaWN1bG9zXF9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/SubmarcasVehiculos/_ListaSubmarcas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VibWFyY2FzVmVoaWN1bG9zXF9MaXN0YVN1Ym1hcmNhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TiposCarga/IndexModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NDYXJnYVxJbmRleE1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TiposCarga/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NDYXJnYVxfQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TiposCarga/_Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NDYXJnYVxfRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TiposCarga/_Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NDYXJnYVxfRWxpbWluYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TiposCarga/_ListaTiposCarga.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NDYXJnYVxfTGlzdGFUaXBvc0NhcmdhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TiposVehiculos/IndexModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NWZWhpY3Vsb3NcSW5kZXhNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TiposVehiculos/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NWZWhpY3Vsb3NcX0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TiposVehiculos/_Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NWZWhpY3Vsb3NcX0VsaW1pbmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TiposVehiculos/_ListaTiposVehiculos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NWZWhpY3Vsb3NcX0xpc3RhVGlwb3NWZWhpY3Vsb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TiposVehiculos/_Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NWZWhpY3Vsb3NcX1VwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TransitoTransporte/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpdG9UcmFuc3BvcnRlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TransitoTransporte/_GruasConcesionarioDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpdG9UcmFuc3BvcnRlXF9HcnVhc0NvbmNlc2lvbmFyaW9EZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/Views/TransitoTransporte/_ListadoTransitoTransporte.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpdG9UcmFuc3BvcnRlXF9MaXN0YWRvVHJhbnNpdG9UcmFuc3BvcnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = X1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Inssoft/SITTEG/SITTEG-GUANAJUATO/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = X1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,34 @@
+0000000000000000000000000000000000000000 9f311f51b033cb844cceb507cfbd97adc566d73e Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1681611254 -0600	clone: from https://github.com/rubensua123/SITTEG-GUANAJUATO
+9f311f51b033cb844cceb507cfbd97adc566d73e 9f311f51b033cb844cceb507cfbd97adc566d73e Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682215783 -0600	checkout: moving from main to IAA_220423_Pensiones
+9f311f51b033cb844cceb507cfbd97adc566d73e 13c1cb06c1da9ca27ef433987dd906e84e57e75b Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682215799 -0600	commit: Pensiones
+13c1cb06c1da9ca27ef433987dd906e84e57e75b 40fb0cae1fe6ab2dd45ccec3505c6f0ba45f67bc Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682225576 -0600	commit: Pensiones
+40fb0cae1fe6ab2dd45ccec3505c6f0ba45f67bc 9f311f51b033cb844cceb507cfbd97adc566d73e Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682225592 -0600	checkout: moving from IAA_220423_Pensiones to main
+9f311f51b033cb844cceb507cfbd97adc566d73e f2f0c0bb0d5037f929e6b40996afe1baa511e102 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682225605 -0600	pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+f2f0c0bb0d5037f929e6b40996afe1baa511e102 40fb0cae1fe6ab2dd45ccec3505c6f0ba45f67bc Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682225610 -0600	checkout: moving from main to IAA_220423_Pensiones
+40fb0cae1fe6ab2dd45ccec3505c6f0ba45f67bc a35453132b364c6a2fefa4966288bf5fc76e3feb Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682225669 -0600	commit (merge): Merge Main
+a35453132b364c6a2fefa4966288bf5fc76e3feb f1619c2441df0d3e99d0c74a70471f445fbf93bd Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682460822 -0600	commit: Pensiones y gruas
+f1619c2441df0d3e99d0c74a70471f445fbf93bd 9b4328e9f4bccaaecc14a96b80bfe4a5cfbd838e Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682460842 -0600	commit: Merge
+9b4328e9f4bccaaecc14a96b80bfe4a5cfbd838e f2f0c0bb0d5037f929e6b40996afe1baa511e102 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682460861 -0600	checkout: moving from IAA_220423_Pensiones to main
+f2f0c0bb0d5037f929e6b40996afe1baa511e102 9b4328e9f4bccaaecc14a96b80bfe4a5cfbd838e Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682460888 -0600	checkout: moving from main to IAA_220423_Pensiones
+9b4328e9f4bccaaecc14a96b80bfe4a5cfbd838e f2f0c0bb0d5037f929e6b40996afe1baa511e102 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682483686 -0600	checkout: moving from IAA_220423_Pensiones to main
+f2f0c0bb0d5037f929e6b40996afe1baa511e102 c9128d8449c843fec83d86ce8374a1087867d10c Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682483697 -0600	pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+c9128d8449c843fec83d86ce8374a1087867d10c 9b4328e9f4bccaaecc14a96b80bfe4a5cfbd838e Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682483721 -0600	checkout: moving from main to IAA_220423_Pensiones
+9b4328e9f4bccaaecc14a96b80bfe4a5cfbd838e c9128d8449c843fec83d86ce8374a1087867d10c Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682483736 -0600	merge main: Fast-forward
+c9128d8449c843fec83d86ce8374a1087867d10c 28dc16b0220623f0194a605c81260cffb5bcf07c Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682503191 -0600	commit: GRUAS
+28dc16b0220623f0194a605c81260cffb5bcf07c 7483aea33d2f19d42ead0d49527fc4ff2c438d8e Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682588083 -0600	commit: Gruas
+7483aea33d2f19d42ead0d49527fc4ff2c438d8e c9128d8449c843fec83d86ce8374a1087867d10c Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682588097 -0600	checkout: moving from IAA_220423_Pensiones to main
+c9128d8449c843fec83d86ce8374a1087867d10c d99e958718093eec82bacb4419a8df698b8f1761 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682588108 -0600	pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+d99e958718093eec82bacb4419a8df698b8f1761 7483aea33d2f19d42ead0d49527fc4ff2c438d8e Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682588113 -0600	checkout: moving from main to IAA_220423_Pensiones
+7483aea33d2f19d42ead0d49527fc4ff2c438d8e 124289288c34b9e6359ccf263c65c6cf00c817c4 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682588231 -0600	commit (merge): Merge
+124289288c34b9e6359ccf263c65c6cf00c817c4 1a7df4a2e7b31bb7eb54f3d62cfd3c0a66b7784d Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682610938 -0600	commit: Ajustes gruas
+1a7df4a2e7b31bb7eb54f3d62cfd3c0a66b7784d d99e958718093eec82bacb4419a8df698b8f1761 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682610950 -0600	checkout: moving from IAA_220423_Pensiones to main
+d99e958718093eec82bacb4419a8df698b8f1761 1a7df4a2e7b31bb7eb54f3d62cfd3c0a66b7784d Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682610970 -0600	checkout: moving from main to IAA_220423_Pensiones
+1a7df4a2e7b31bb7eb54f3d62cfd3c0a66b7784d 4232a6d50cc0dd741ab79bcf4741d607f0d22757 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682632284 -0600	commit: gruas ajustes
+4232a6d50cc0dd741ab79bcf4741d607f0d22757 8e6cdb94c01be5aac78dc044d7113e1ef9591d99 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1682728151 -0600	commit: Ajustes grua
+8e6cdb94c01be5aac78dc044d7113e1ef9591d99 d4ee18c782605d124bb15736c665e2c110287d62 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1683022613 -0600	commit: Ajustes pensiones completo
+d4ee18c782605d124bb15736c665e2c110287d62 d99e958718093eec82bacb4419a8df698b8f1761 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1683022628 -0600	checkout: moving from IAA_220423_Pensiones to main
+d99e958718093eec82bacb4419a8df698b8f1761 450dd11289f853a37d8f88f9a736036b0cf2e6c2 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1683022637 -0600	pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+450dd11289f853a37d8f88f9a736036b0cf2e6c2 d4ee18c782605d124bb15736c665e2c110287d62 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1683022641 -0600	checkout: moving from main to IAA_220423_Pensiones
+d4ee18c782605d124bb15736c665e2c110287d62 d4ee18c782605d124bb15736c665e2c110287d62 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1683022854 -0600	reset: moving to HEAD
+d4ee18c782605d124bb15736c665e2c110287d62 9d014f4f301bee760576b3afcd88bd43b69832e0 Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1683052209 -0600	commit (merge): Merge from master
+9d014f4f301bee760576b3afcd88bd43b69832e0 0a34399fa4a3737b9a0feca52d33eaab28cca64f Israel Alquicira Arrieta <israel.alquicira@interfactura.com> 1683053371 -0600	commit: Elimina archivos
